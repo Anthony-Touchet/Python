@@ -1,0 +1,10 @@
+C:\Users\anthony.touchet\Desktop\Pyth\Tasky\iOS_Starter\TaskyiOS\bin\iPhone\Debug\Tasky.exe
+C:\Users\anthony.touchet\Desktop\Pyth\Tasky\iOS_Starter\TaskyiOS\bin\iPhone\Debug\Tasky.pdb
+C:\Users\anthony.touchet\Desktop\Pyth\Tasky\iOS_Starter\TaskyiOS\bin\iPhone\Debug\Tasky.Core.dll
+C:\Users\anthony.touchet\Desktop\Pyth\Tasky\iOS_Starter\TaskyiOS\bin\iPhone\Debug\Tasky.Core.pdb
+C:\Users\anthony.touchet\Desktop\Pyth\Tasky\iOS_Starter\TaskyiOS\obj\iPhone\Debug\optimized\
+C:\Users\anthony.touchet\Desktop\Pyth\Tasky\iOS_Starter\TaskyiOS\obj\iPhone\Debug\TaskyiOS.csprojResolveAssemblyReference.cache
+C:\Users\anthony.touchet\Desktop\Pyth\Tasky\iOS_Starter\TaskyiOS\obj\iPhone\Debug\Tasky.exe
+C:\Users\anthony.touchet\Desktop\Pyth\Tasky\iOS_Starter\TaskyiOS\obj\iPhone\Debug\Tasky.pdb
+C:\Users\anthony.touchet\Desktop\Pyth\Tasky\iOS_Starter\TaskyiOS\obj\iPhone\Debug\Tasky.exe.mdb
+C:\Users\anthony.touchet\Desktop\Pyth\Tasky\iOS_Starter\TaskyiOS\bin\iPhone\Debug\Tasky.exe.mdb
