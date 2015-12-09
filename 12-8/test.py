@@ -1,7 +1,7 @@
 import VecMath
 from VecMath import *
 
-print("Vector3D Math:")
+print("Vector3D Math:")					#3D Vector Math
 a = Vector3D(0,5,0)						#Test Vector a
 b = Vector3D(10,0,1)					#Test Vector b
 c = Vector3D(0,0,0)						#Testing Vector c that will equal the result of anythiny that returns a vector
