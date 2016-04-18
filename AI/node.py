@@ -13,8 +13,8 @@ class Node(object):
 		self.top = (self.y + self.margin) * self.y + self.margin
 		self.left = (self.x + self.margin) * self.x + self.margin
 		self.parent = par
-		self.G =
-		self.H =
+		self.G = 0
+		self.H = 0
 		self.F = G + H
 		
 	def draw(self, screen):
