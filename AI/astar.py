@@ -33,19 +33,17 @@ for r in searchspace:	# Set if walkable
 
 player.Draw(screen)
 
+player.Run()
+player.AStar()
 
-	
-#Keeps screen up for now
 finish = False
+finalCost = 0
 while not finish:
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			finish = True
 	
-	if(player.curNode != player.goal):
-		player.FindSurrounding(screen)
-		player.curNode = player.LowestF(player.openNodes, screen)
-		
+	
 	pygame.display.flip()
 	
 #http://www.pygame.org/docs/

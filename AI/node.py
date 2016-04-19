@@ -31,8 +31,9 @@ class Node(object):
 	#null = None
 	
 class Astar(object):
-	def __init__(self, curN, SearchSpace, Goal):
-		self.curNode = curN
+	def __init__(self, Start, SearchSpace, Goal):
+		self.start = Start
+		self.curNode = Start
 		self.goal = Goal
 		self.searspace = SearchSpace
 		self.openNodes = []
@@ -42,8 +43,9 @@ class Astar(object):
 		pygame.draw.rect(screen, [100, 200, 0, 255] ,[(self.curNode.x, self.curNode.y), (self.curNode.width, self.curNode.height)])
 		pygame.draw.rect(screen, [0, 0, 255, 255] ,[(self.goal.x, self.goal.y), (self.goal.width, self.goal.height)])
 		
-	def LowestF(self, Nodes, screen):
+	def LowestF(self, Nodes):
 		lowestfNode = None
+		
 		for n in Nodes:
 			if(lowestfNode == None):
 				lowestfNode = n
@@ -55,20 +57,19 @@ class Astar(object):
 			for j,node in enumerate(nodes):
 				if node == lowestfNode:
 					pos = (j, i)
-					pygame.draw.line(screen, [0, 255, 255, 255] ,self.curNode.center, node.center, 5)
+					
 		
-		for n in Nodes:
-			print n.GetF()
+		self.openNodes.sort()
 		return lowestfNode
 	
-	def CalculateH(self, Node):
+	def Calculate(self, Node, Node2):						#Trying to calculate H
 		for i,nodes in enumerate(self.searspace):	#find Checking node
 			for j,node in enumerate(nodes):
 				if node == Node:
 					Checkpos = (j, i)
 		for i,nodes in enumerate(self.searspace):	#find Goal node
 			for j,node in enumerate(nodes):
-				if node == self.goal:
+				if node == Node2:
 					Goalpos = (j, i)
 					Goalpos = (j, i)
 			
@@ -95,31 +96,52 @@ class Astar(object):
 				break
 		return cost
 		
-	def FindSurrounding(self, screen):	
+	def FindSurrounding(self):	
+		self.AdjacentNodes = []
 		for i,nodes in enumerate(self.searspace):	#find current
 			for j,node in enumerate(nodes):
 				if node == self.curNode:
 					pos = (j, i)
-					
-					
+
 		for i,nodes in enumerate(self.searspace):	#get all ajacent
 			if(pos[1] - 1 <= i <= pos[1] + 1) and (i != None):
 				for j,node in enumerate(nodes):
-					if (pos[0] - 1 <= j <= pos[0] + 1) and (j != None) and (self.searspace[i][j].walkable == True):						
-						self.searspace[i][j].parent = self.curNode
-						self.searspace[i][j].SetG(10) if((pos[0] == j) or (pos[1] == i)) else(self.searspace[i][j].SetG(14))
-						hcost = self.CalculateH(self.searspace[i][j])
-						self.searspace[i][j].SetH(hcost)
+					if (pos[0] - 1 <= j <= pos[0] + 1) and (j != None) and (self.searspace[i][j].walkable == True) and (self.searspace[i][j] not in self.closedNodes):						
 						self.openNodes.append(self.searspace[i][j])
-						
-		self.openNodes.remove(self.curNode)
-		self.closedNodes.append(self.curNode)
-		
-		#for n in self.openNodes:
-		#	pygame.draw.rect(screen, [255, 100, 0, 255] ,[(n.x, n.y), (n.width, n.height)])
-		
+						self.searspace[j][i].parent = self.curNode
+							
+	#def ReTracePath(self):
 	
-	def RunTime(self):
-		self.FindSurrounding()
+	def Run(self):
+		self.openNodes.append(self.start)
+		while not self.openNodes:
+			self.curNode = self.LowestF(self.openNodes)
+	
+	def AStar(self):
+		self.openNodes.append(self.start)
 		
 		
+		while(len(self.openNodes) != 0):
+			self.curNode = self.LowestF(self.openNodes)
+			self.FindSurrounding()
+			self.openNodes.remove(self.curNode)
+			self.closedNodes.append(self.curNode)
+			
+			for node in self.openNodes:
+				if(node.walkable == True) and (node not in self.closedNodes):
+					if(node not in openNodes):
+						if(node == self.goal):
+							#Retrace Path
+							return true
+						else:
+							self.openNodes.append(node)
+							node.SetG = Calculate(node, current)
+							node.SetH = Calculate(node, self.goal)
+							
+				else:
+					costToMoveTo = self.curNode.G + self.curNode.parent.G
+					
+					if(costToMoveTo < node.G):
+						node.parent = self.curNode
+						node.SetG(costToMoveTo)
+						self.openNodes.sort(key = lambda openNodes: openNodes.G)
