@@ -2,24 +2,63 @@ import pygame
 from pygame.locals import *
 
 class Node(object):
-	def __init__(self, position, wal, par):
+	def __init__(self, x, y):
 		self.color = [255, 255, 255, 255]
 		self.height = 20
 		self.width = 20
-		self.x = position[0]
-		self.y = position[1]
-		self.walkable = wal
-		self.margin = 5
-		self.top = (self.y + self.margin) * self.y + self.margin
-		self.left = (self.x + self.margin) * self.x + self.margin
-		self.parent = par
-		self.G = 0
-		self.H = 0
-		self.F = G + H
+		self.space = 5
+		self.x = x
+		self.y = y
+		self.walkable = True
+		self.parent = None
+		self.G = None
+		self.H = None
+		self.F = None
 		
-	def draw(self, screen):
-		if self.walkable == True:
-			pygame.draw.rect(screen, self.color, [self.x, self.y, self.height, self.width])
-		else:
-			pygame.draw.rect(screen, [0,0, 255, 255], [self.x, self.y, self.height, self.width])
-#null = None
+	def Draw(self, screen):
+		col = self.color if (self.walkable) else (255,0,0)
+		pygame.draw.rect(screen, col ,[(self.x, self.y), (self.width, self.height)])
+
+	def SetG(self, value):
+		self.G = value
+	
+	def SetH(self, value):
+		self.H = value
+	
+	def GetF(self):
+		return self.G + self.H
+	#null = None
+	
+class Astar(object):
+	def __init__(self, curN, SearchSpace, Goal):
+		self.curNode = curN
+		self.goal = Goal
+		self.searspace = SearchSpace
+		self.openNodes = []
+		self.closedNodes = []
+		
+	def Draw(self, screen):
+		pygame.draw.rect(screen, [0, 255, 0, 255] ,[(self.curNode.x, self.curNode.y), (self.curNode.width, self.curNode.height)])
+		pygame.draw.rect(screen, [0, 0, 255, 255] ,[(self.goal.x, self.goal.y), (self.goal.width, self.goal.height)])
+		
+	def LeastF(self, Nodes):
+		lowf = -1
+		lowestfNode = None
+		for n in Nodes:
+			if(lowestfNode == None):
+				lowf = n.F
+				lowestfNode = node
+
+			if (n.F < lowf):
+				lowf = n.F
+				lowestfNode = node
+		return lowestfNode
+	
+	def FindSurrounding(self):
+		pos = x, y = 0, 0
+		for r in searspace:
+			for n in r:
+				if(n == curNode):
+					pos.x = n
+					pos.y = r
+		return pos
