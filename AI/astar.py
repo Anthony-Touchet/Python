@@ -6,7 +6,7 @@ import random
 from random import *
 
 pygame.init()
-size = width, height = 250, 250
+size = width, height = 175, 175
 screen = pygame.display.set_mode(size)
 searchspace = []	#Search Space where all the nodes will be
 ytrack = 0			#Will help track where on the y we are
@@ -22,7 +22,7 @@ for r in range(0, 7):	#Set row
 	searchspace.append(nodeHold)
 	ytrack += nodeHold[0].height + nodeHold[0].space	
 
-player = Astar(searchspace[3][2], searchspace, searchspace[5][5])
+player = Astar(searchspace[0][0], searchspace, searchspace[5][5])
 	
 for r in searchspace:	# Set if walkable
 	for n in r:
@@ -33,9 +33,8 @@ for r in searchspace:	# Set if walkable
 
 player.Draw(screen)
 
-player.FindSurrounding(screen)
-	
 
+	
 #Keeps screen up for now
 finish = False
 while not finish:
@@ -43,6 +42,10 @@ while not finish:
 		if event.type == pygame.QUIT:
 			finish = True
 	
+	if(player.curNode != player.goal):
+		player.FindSurrounding(screen)
+		player.curNode = player.LowestF(player.openNodes, screen)
+		
 	pygame.display.flip()
 	
 #http://www.pygame.org/docs/
