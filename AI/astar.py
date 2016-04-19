@@ -22,7 +22,7 @@ for r in range(0, 7):	#Set row
 	searchspace.append(nodeHold)
 	ytrack += nodeHold[0].height + nodeHold[0].space	
 
-player = Astar(searchspace[0][0], searchspace, searchspace[5][5])
+player = Astar(searchspace[3][2], searchspace, searchspace[5][5])
 	
 for r in searchspace:	# Set if walkable
 	for n in r:
@@ -33,6 +33,8 @@ for r in searchspace:	# Set if walkable
 
 player.Draw(screen)
 
+player.FindSurrounding(screen)
+	
 
 #Keeps screen up for now
 finish = False

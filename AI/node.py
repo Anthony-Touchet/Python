@@ -42,7 +42,7 @@ class Astar(object):
 		pygame.draw.rect(screen, [0, 0, 255, 255] ,[(self.goal.x, self.goal.y), (self.goal.width, self.goal.height)])
 		
 	def LeastF(self, Nodes):
-		lowf = -1
+		lowf = 0
 		lowestfNode = None
 		for n in Nodes:
 			if(lowestfNode == None):
@@ -54,11 +54,29 @@ class Astar(object):
 				lowestfNode = node
 		return lowestfNode
 	
-	def FindSurrounding(self):
-		pos = x, y = 0, 0
-		for r in searspace:
-			for n in r:
-				if(n == curNode):
-					pos.x = n
-					pos.y = r
-		return pos
+	def FindSurrounding(self, screen):	
+		for i,nodes in enumerate(self.searspace):	#find current
+			for j,node in enumerate(nodes):
+				if node == self.curNode:
+					pos = (i, j)
+					
+					
+		for i,nodes in enumerate(self.searspace):	#get all ajacent
+			if(pos[0] - 1 <= i <= pos[0] + 1) and (i != None):
+				for j,node in enumerate(nodes):
+					if (pos[1] - 1 <= j <= pos[1] + 1) and (j != None) and (self.searspace[i][j].walkable == True):						
+						self.searspace[i][j].parent = self.curNode
+						self.searspace[i][j].SetG(10) if((pos[0] == j) or (pos[1] == i)) else(self.searspace[i][j].SetG(14))
+						self.openNodes.append(self.searspace[i][j])
+						
+		self.openNodes.remove(self.curNode)
+		
+		for n in self.openNodes:
+			pygame.draw.rect(screen, [255, 255, 0, 255] ,[(n.x, n.y), (n.width, n.height)])
+		
+	
+	def RunTime(self):
+		self.FindSurrounding()
+		for n in self.openNodes:
+			print n.G
+		
