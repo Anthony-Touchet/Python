@@ -21,7 +21,7 @@ for r in range(0, 7):	#Create Grid
 		nodeHold.append(Node(i * (a.width + a.space), ytrack))
 	searchspace.append(nodeHold) #Add row
 	ytrack += nodeHold[0].height + nodeHold[0].space	
-player = Astar(searchspace[2][3], searchspace, searchspace[5][5])	#Player	
+player = Astar(searchspace[1][1], searchspace, searchspace[5][5])	#Player	
 
 for r in searchspace:
 	for n in r:	
@@ -29,17 +29,15 @@ for r in searchspace:
 		if(rand % 3 == 0) and (player.curNode != n) and (player.goal != n):
 			n.walkable = False 
 		n.Draw(screen)
-		#self.curNode.G = self.Calculate(self.searspace[i][j], self.curNode)
 		
-
-player.curNode.H = player.CalculateH(player.curNode, player.goal)
-print player.curNode.H
-
 for r in searchspace:
 	for n in r:
 		n.Draw(screen)
 
 player.Draw(screen)
+
+player.AStar(screen)
+player.DrawPath(screen)
 
 #if (player.AStar(screen)):
 #	player.DrawPath(screen)
