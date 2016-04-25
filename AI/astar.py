@@ -37,13 +37,20 @@ for r in searchspace:
 player.Draw(screen)
 
 player.AStar(screen)
-player.DrawPath(screen)
 
-#if (player.AStar(screen)):
-#	player.DrawPath(screen)
-	
-#else:
-#	pygame.draw.line(screen, [0, 100, 100, 255], (player.start.x, player.start.y),(player.start.x + player.start.width, player.start.y + player.start.height), 5)
+for l in searchspace:
+	for n in l:
+		if (n in player.closedNodes) and (n != player.start) and (n != player.goal) and (n.walkable != False):
+			pygame.draw.rect(screen, [0, 0, 255, 255] ,[(n.x, n.y), (n.width, n.height)])
+			
+		elif (n in player.openNodes) and (n != player.goal) and (n != player.start) and (n.walkable != False):
+			pygame.draw.rect(screen, [0, 255, 50, 255] ,[(n.x, n.y), (n.width, n.height)])
+		
+		if n.parent != None:
+			player.DrawParent(screen, n, n.parent)
+			
+
+player.DrawPath(screen)
 
 finish = False
 clock = pygame.time.Clock()

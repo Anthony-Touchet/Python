@@ -22,13 +22,19 @@ class Node(object):
 
 	def SetG(self, value):
 		self.G = value
+		self.F = self.GetF()
+		return self.G
 	
 	def SetH(self, value):
 		self.H = value
+		self.F = self.GetF()
+		return self.H
 	
 	def GetF(self):
+		if self.G == None:
+			self.G = 0
 		return self.G + self.H
-	#null = None
+	
 	
 class Astar(object):
 	def __init__(self, Start, SearchSpace, Goal):
@@ -40,7 +46,7 @@ class Astar(object):
 		self.closedNodes = []
 		
 	def Draw(self, screen):
-		pygame.draw.rect(screen, [100, 200, 0, 255] ,[(self.start.x, self.start.y), (self.start.width, self.start.height)])
+		pygame.draw.rect(screen, [0, 255, 255, 255] ,[(self.start.x, self.start.y), (self.start.width, self.start.height)])
 		pygame.draw.rect(screen, [150, 100, 255, 255] ,[(self.goal.x, self.goal.y), (self.goal.width, self.goal.height)])
 		
 	def FindSurrounding(self, screen):	
@@ -53,7 +59,7 @@ class Astar(object):
 		for i,nodes in enumerate(self.searspace):	#get all ajacent
 			if(pos[1] - 1 <= i <= pos[1] + 1) and (i != None):
 				for j,node in enumerate(nodes):
-					if (pos[0] - 1 <= j <= pos[0] + 1) and (j != None) and (self.searspace[i][j].walkable == True) and (self.searspace[i][j] != self.curNode):						
+					if (pos[0] - 1 <= j <= pos[0] + 1) and (j != None) and (self.searspace[i][j].walkable == True) and (self.searspace[i][j] != self.curNode):	
 						adjac.append(self.searspace[i][j])
 						
 		return adjac
@@ -107,15 +113,15 @@ class Astar(object):
 			if lowestF == None:
 				lowestF = n
 				
-			elif(n.F < lowestF.F):
+			elif(n.GetF() < lowestF.GetF()):
 				lowestF = n
 		
 		return lowestF
 		
 	def Start(self, screen):
 		self.curNode = self.start
-		self.curNode.G = 0
-		self.curNode.G = self.CalculateH(self.curNode, self.goal)
+		self.start.G = 0
+		self.curNode.H = self.CalculateH(self.curNode, self.goal)
 		
 		self.openNodes.append(self.curNode)
 		while self.curNode in self.openNodes:
@@ -123,8 +129,8 @@ class Astar(object):
 			for n in ad:
 				if(n.walkable == True):
 					n.parent = self.curNode
-					n.H = self.CalculateH(n, self.goal)
-					n.G = self.CalculateG(n, self.curNode)
+					n.SetH(self.CalculateH(n, self.goal))
+					n.SetG(self.CalculateG(n, self.curNode))
 					self.openNodes.append(n)
 			self.openNodes.remove(self.curNode)
 			self.closedNodes.append(self.curNode)
@@ -141,26 +147,29 @@ class Astar(object):
 			for n in adj:
 				if(n not in self.closedNodes):
 					if(n not in self.openNodes):
-						if(self.curNode == self.goal):
+						if(self.goal in self.openNodes) or (self.curNode == self.goal):
 							return True
 						
 						else:
-							self.openNodes.append(n)
-							
+						
 							n.parent = self.curNode
-							n.H = self.CalculateH(n, self.goal)
-							n.G = self.CalculateG(n, self.curNode)
+							n.SetH(self.CalculateH(n, self.goal))
+							n.SetG(self.CalculateG(n, self.curNode))
+							self.openNodes.append(n)
 					
 					else:
-						movecost = self.curNode.G + self.curNode.parent.G
+						movecost = self.curNode.G + self.CalculateG(self.curNode, n)
 						if(movecost < n.G):
 							n.parent = self.curNode
-							n.G = movecost
+							n.SetG(movecost) 
 							self.openNodes.sort(key = lambda x : x.f)
 		return False
 
+	def DrawParent(self, screen, n1, n2):
+		pygame.draw.line(screen, [255, 0, 0, 255], n1.center, n2.center, 5)
+	
 	def DrawPath(self, screen):
-		node = self.goal
-		while(node.parent != None):
-			pygame.draw.line(screen, [255, 0, 0, 255], node.center, node.parent.center, 5)
-			node = node.parent
+		cur = self.goal
+		while(cur.parent != None):
+			pygame.draw.line(screen, [150, 100, 255, 255], cur.center, cur.parent.center, 5)
+			cur = cur.parent
