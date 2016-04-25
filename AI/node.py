@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import *
 
-class Node(object):
+class Node(object):							
 	def __init__(self, x, y):
 		self.color = [255, 255, 255, 255]
 		self.height = 50
@@ -49,7 +49,7 @@ class Astar(object):
 		pygame.draw.rect(screen, [0, 255, 255, 255] ,[(self.start.x, self.start.y), (self.start.width, self.start.height)])
 		pygame.draw.rect(screen, [150, 100, 255, 255] ,[(self.goal.x, self.goal.y), (self.goal.width, self.goal.height)])
 		
-	def FindSurrounding(self, screen):	
+	def FindSurrounding(self, screen):	#Finds and returns all adjacent nodes
 		adjac = []
 		for i,nodes in enumerate(self.searspace):	#find current
 			for j,node in enumerate(nodes):
@@ -64,7 +64,7 @@ class Astar(object):
 						
 		return adjac
 		
-	def CalculateH(self, n1, n2):
+	def CalculateH(self, n1, n2):	#Used to calculate H
 		cost = 0
 		for i,nodes in enumerate(self.searspace):	#find current
 			for j,node in enumerate(nodes):
@@ -87,7 +87,7 @@ class Astar(object):
 				
 		return cost
 	
-	def CalculateG(self, n1, n2):
+	def CalculateG(self, n1, n2):	#Used to calculate G
 		cost = 0
 		for i,nodes in enumerate(self.searspace):	#find current
 			for j,node in enumerate(nodes):
@@ -107,7 +107,7 @@ class Astar(object):
 				
 		return cost
 	
-	def FindLowestF(self, nodes):
+	def FindLowestF(self, nodes):	#Function to find the lowest F in a list
 		lowestF = None
 		for n in nodes:
 			if lowestF == None:
@@ -119,57 +119,54 @@ class Astar(object):
 		return lowestF
 		
 	def Start(self, screen):
-		self.curNode = self.start
-		self.start.G = 0
-		self.curNode.H = self.CalculateH(self.curNode, self.goal)
+		self.curNode = self.start		#set current node to the start
 		
-		self.openNodes.append(self.curNode)
-		while self.curNode in self.openNodes:
-			ad = self.FindSurrounding(screen)
-			for n in ad:
-				if(n.walkable == True):
-					n.parent = self.curNode
-					n.SetH(self.CalculateH(n, self.goal))
-					n.SetG(self.CalculateG(n, self.curNode))
-					self.openNodes.append(n)
-			self.openNodes.remove(self.curNode)
-			self.closedNodes.append(self.curNode)
-	
+		self.openNodes.append(self.curNode)		#put on the open list
+		ad = self.FindSurrounding(screen)		#Find Surrounding nodes
+		for n in ad:							#for each node that is adjacent
+			if(n.walkable == True):							#If walkable
+				n.parent = self.curNode						#Set Parent
+				n.SetH(self.CalculateH(n, self.goal))		#Set the H
+				n.SetG(self.CalculateG(n, self.curNode))	#Set the G
+				self.openNodes.append(n)					#Put on the open list
+				
+		self.openNodes.remove(self.curNode)		#Remove starting node
+		self.closedNodes.append(self.curNode)	#Put Starting node on the closed list
+		
 	def AStar(self, screen):
 		
-		self.Start(screen)
-		while(len(self.openNodes) > 0):
-			self.curNode = self.FindLowestF(self.openNodes)
-			self.openNodes.remove(self.curNode)
-			self.closedNodes.append(self.curNode)
-			adj = self.FindSurrounding(screen)
+		self.Start(screen)									#Run the start function	
+		while(len(self.openNodes) > 0):						#While there are nodes in the open list
+			self.curNode = self.FindLowestF(self.openNodes)	#Find Node with the Lowest F score
+			self.openNodes.remove(self.curNode)				#Remove Current Node from the open list
+			self.closedNodes.append(self.curNode)			#Add Current Node to the Closed List
+			adj = self.FindSurrounding(screen)				#Find All adjacent Nodes
 			
-			for n in adj:
-				if(n not in self.closedNodes):
-					if(n not in self.openNodes):
-						if(self.goal in self.openNodes) or (self.curNode == self.goal):
+			for n in adj:									#For Each Adjacent Node
+				if(n not in self.closedNodes):					#If it is not in the closed list
+					if(n not in self.openNodes):					#And not in open list
+						if(self.goal in self.openNodes) or (self.curNode == self.goal):				#And if The Goal is in open list or current node is the goal, Break return True.
 							return True
 						
-						else:
+						else:											#Else
+							n.parent = self.curNode							#Set Parent
+							n.SetH(self.CalculateH(n, self.goal))			#Set H
+							n.SetG(self.CalculateG(n, self.curNode))		#Set G
+							self.openNodes.append(n)						#Put on open list
 						
-							n.parent = self.curNode
-							n.SetH(self.CalculateH(n, self.goal))
-							n.SetG(self.CalculateG(n, self.curNode))
-							self.openNodes.append(n)
-					
-					else:
-						movecost = self.curNode.G + self.CalculateG(self.curNode, n)
-						if(movecost < n.G):
-							n.parent = self.curNode
-							n.SetG(movecost) 
-							self.openNodes.sort(key = lambda x : x.f)
-		return False
+					else:					#Else if the Node is on the open list
+						movecost = self.curNode.G + self.CalculateG(self.curNode, n)	#Calculate the G from current node to the other node
+						if(movecost < n.G):				#if that cost is less than the current 
+							n.parent = self.curNode		#Set parent
+							n.SetG(self.CalculateG(self.curNode, n)) 	#CalculateG
+							self.openNodes.sort(key = lambda x : x.f)	#Sort the list
+		return False	#if the open list is empty, return false
 
-	def DrawParent(self, screen, n1, n2):
+	def DrawParent(self, screen, n1, n2):	#Draw from n1 to n2
 		pygame.draw.line(screen, [255, 0, 0, 255], n1.center, n2.center, 5)
 	
 	def DrawPath(self, screen):
-		cur = self.goal
-		while(cur.parent != None):
-			pygame.draw.line(screen, [150, 100, 255, 255], cur.center, cur.parent.center, 5)
-			cur = cur.parent
+		cur = self.goal					#where the function will start drawing
+		while(cur.parent != None):		#While the parent of the current node is not empty
+			pygame.draw.line(screen, [150, 100, 255, 255], cur.center, cur.parent.center, 5)	#Draw line to that parent
+			cur = cur.parent		#Set current node to that parent
