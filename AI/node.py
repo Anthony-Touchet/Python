@@ -163,6 +163,7 @@ class Astar(object):
 		return False	#if the open list is empty, return false
 
 	def DrawParent(self, screen, n1, n2):	#Draw from n1 to n2
+		pygame.draw.circle(screen, [255, 0, 0, 255], n1.center, 10)
 		pygame.draw.line(screen, [255, 0, 0, 255], n1.center, n2.center, 5)
 	
 	def DrawPath(self, screen):

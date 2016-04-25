@@ -43,6 +43,8 @@ for l in searchspace:	#for each list in the searchspace
 		elif (n in player.openNodes) and (n != player.goal) and (n != player.start) and (n.walkable != False):	#if the node is in open list, not the start, not the goal, and walkable is equal to true
 			pygame.draw.rect(screen, [0, 255, 50, 255] ,[(n.x, n.y), (n.width, n.height)])						#Draw that the node in in the open list. Green Square
 		
+for l in searchspace:
+	for n in l:
 		if n.parent != None:						#If the node has a parent
 			player.DrawParent(screen, n, n.parent)	#Draw line to that parent
 			
