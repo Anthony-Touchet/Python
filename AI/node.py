@@ -57,9 +57,9 @@ class Astar(object):
 					pos = (j, i)
 
 		for i,nodes in enumerate(self.searspace):	#get all ajacent
-			if(pos[1] - 1 <= i <= pos[1] + 1) and (i != None):
+			if(pos[1] - 1 <= i <= pos[1] + 1):
 				for j,node in enumerate(nodes):
-					if (pos[0] - 1 <= j <= pos[0] + 1) and (j != None) and (self.searspace[i][j].walkable == True) and (self.searspace[i][j] != self.curNode):	
+					if (pos[0] - 1 <= j <= pos[0] + 1) and (self.searspace[i][j].walkable == True) and (self.searspace[i][j] != self.curNode):	
 						adjac.append(self.searspace[i][j])
 						
 		return adjac
