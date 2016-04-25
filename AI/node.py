@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+import time
 
 class Node(object):							
 	def __init__(self, x, y):
@@ -49,7 +50,7 @@ class Astar(object):
 		pygame.draw.rect(screen, [0, 255, 255, 255] ,[(self.start.x, self.start.y), (self.start.width, self.start.height)])
 		pygame.draw.rect(screen, [150, 100, 255, 255] ,[(self.goal.x, self.goal.y), (self.goal.width, self.goal.height)])
 		
-	def FindSurrounding(self, screen):	#Finds and returns all adjacent nodes
+	def FindSurrounding(self):	#Finds and returns all adjacent nodes
 		adjac = []
 		for i,nodes in enumerate(self.searspace):	#find current
 			for j,node in enumerate(nodes):
@@ -118,11 +119,11 @@ class Astar(object):
 		
 		return lowestF
 		
-	def Start(self, screen):
+	def Start(self):
 		self.curNode = self.start		#set current node to the start
 		
 		self.openNodes.append(self.curNode)		#put on the open list
-		ad = self.FindSurrounding(screen)		#Find Surrounding nodes
+		ad = self.FindSurrounding()		#Find Surrounding nodes
 		for n in ad:							#for each node that is adjacent
 			if(n.walkable == True):							#If walkable
 				n.parent = self.curNode						#Set Parent
@@ -133,14 +134,14 @@ class Astar(object):
 		self.openNodes.remove(self.curNode)		#Remove starting node
 		self.closedNodes.append(self.curNode)	#Put Starting node on the closed list
 		
-	def AStar(self, screen):
+	def AStar(self):
 		
-		self.Start(screen)									#Run the start function	
+		self.Start()									#Run the start function	
 		while(len(self.openNodes) > 0):						#While there are nodes in the open list
 			self.curNode = self.FindLowestF(self.openNodes)	#Find Node with the Lowest F score
 			self.openNodes.remove(self.curNode)				#Remove Current Node from the open list
 			self.closedNodes.append(self.curNode)			#Add Current Node to the Closed List
-			adj = self.FindSurrounding(screen)				#Find All adjacent Nodes
+			adj = self.FindSurrounding()				#Find All adjacent Nodes
 			
 			for n in adj:									#For Each Adjacent Node
 				if(n not in self.closedNodes):					#If it is not in the closed list
@@ -169,5 +170,5 @@ class Astar(object):
 	def DrawPath(self, screen):
 		cur = self.goal					#where the function will start drawing
 		while(cur.parent != None):		#While the parent of the current node is not empty
-			pygame.draw.line(screen, [150, 100, 255, 255], cur.center, cur.parent.center, 5)	#Draw line to that parent
+			pygame.draw.line(screen, [255, 0, 255, 255], cur.center, cur.parent.center, 5)	#Draw line to that parent
 			cur = cur.parent		#Set current node to that parent

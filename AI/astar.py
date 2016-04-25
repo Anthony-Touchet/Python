@@ -6,6 +6,13 @@ import random
 from random import *
 import time
 
+def DrawPath(screen):
+	cur = self.goal					#where the function will start drawing
+	while(cur.parent != None):		#While the parent of the current node is not empty
+		pygame.draw.line(screen, [255, 0, 255, 255], cur.center, cur.parent.center, 5)	#Draw line to that parent
+		cur = cur.parent		#Set current node to that parent
+		pygame.screen.flip()
+
 pygame.init()
 size = width, height = 425, 425									#set size of the screen
 screen = pygame.display.set_mode(size)							
@@ -33,30 +40,60 @@ for r in searchspace:				#For each list in the search space
 
 player.Draw(screen)		#Draw the player and the Goal
 
-player.AStar(screen)	#Algorithim that will change the parents of the nodes
-
-for l in searchspace:	#for each list in the searchspace
-	for n in l:			#for each node in the list
-		if (n in player.closedNodes) and (n != player.start) and (n != player.goal) and (n.walkable == True):	#if the node is in closed list, not the start, not the goal, and walkable is equal to true
-			pygame.draw.rect(screen, [0, 0, 255, 255] ,[(n.x, n.y), (n.width, n.height)])						#Draw that the node in in the closed list. Blue Square
-			
-		elif (n in player.openNodes) and (n != player.goal) and (n != player.start) and (n.walkable != False):	#if the node is in open list, not the start, not the goal, and walkable is equal to true
-			pygame.draw.rect(screen, [0, 255, 50, 255] ,[(n.x, n.y), (n.width, n.height)])						#Draw that the node in in the open list. Green Square
-		
-for l in searchspace:
-	for n in l:
-		if n.parent != None:						#If the node has a parent
-			player.DrawParent(screen, n, n.parent)	#Draw line to that parent
-			
-
-player.DrawPath(screen)		#draw from the goal
-
 finish = False
-clock = pygame.time.Clock()
+started = False
+path = False
 while not finish:	
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			finish = True
+			
 	pygame.display.flip()
+	time.sleep(.5)
+	if started == False:
+		player.Start()
+		pygame.display.flip()
+		started = True
+		
+	else:	
+		player.curNode = player.FindLowestF(player.openNodes)	#Find Node with the Lowest F score
+		player.openNodes.remove(player.curNode)				#Remove Current Node from the open list
+		player.closedNodes.append(player.curNode)			#Add Current Node to the Closed List
+		adj = player.FindSurrounding()				#Find All adjacent Nodes
 	
+		for n in adj:									#For Each Adjacent Node
+			if(n not in player.closedNodes):					#If it is not in the closed list
+				if(n not in player.openNodes):					#And not in open list
+					if(player.goal in player.openNodes) or (player.curNode == player.goal):				#And if The Goal is in open list or current node is the goal, Break return True.
+						path = True
+						
+					else:											#Else
+						n.parent = player.curNode							#Set Parent
+						n.SetH(player.CalculateH(n, player.goal))			#Set H
+						n.SetG(player.CalculateG(n, player.curNode))		#Set G
+						player.openNodes.append(n)						#Put on open list
+						
+				else:					#Else if the Node is on the open list
+					movecost = player.curNode.G + player.CalculateG(player.curNode, n)	#Calculate the G from current node to the other node
+					if(movecost < n.G):				#if that cost is less than the current 
+						n.parent = player.curNode		#Set parent
+						n.SetG(player.CalculateG(player.curNode, n)) 	#CalculateG
+						player.openNodes.sort(key = lambda x : x.f)	#Sort the list
+
+	for l in player.searspace:
+		for n in l:
+			if (n in player.closedNodes) and (n != player.start) and (n != player.goal):
+				pygame.draw.rect(screen, [0,0,255,255], [n.x,n.y, n.width, n.height], )
+				
+			elif (n in player.openNodes) and (n != player.start) and (n != player.goal):
+				pygame.draw.rect(screen, [0, 255, 0, 255], [n.x,n.y, n.width, n.height], )
+				
+			if n.parent != None:
+				pygame.draw.line(screen, [255, 0, 0, 255], n.center, n.parent.center, 5)
+				pygame.draw.circle(screen, [255, 0, 0, 255], n.center, 10)
+	
+	
+	pygame.display.flip()
+	if path == True:
+		time.sleep(5)
 #http://www.pygame.org/docs/
