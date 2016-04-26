@@ -134,34 +134,34 @@ class Astar(object):
 		self.openNodes.remove(self.curNode)		#Remove starting node
 		self.closedNodes.append(self.curNode)	#Put Starting node on the closed list
 		
-	def AStar(self):
-		
-		self.Start()									#Run the start function	
-		while(len(self.openNodes) > 0):						#While there are nodes in the open list
-			self.curNode = self.FindLowestF(self.openNodes)	#Find Node with the Lowest F score
-			self.openNodes.remove(self.curNode)				#Remove Current Node from the open list
-			self.closedNodes.append(self.curNode)			#Add Current Node to the Closed List
-			adj = self.FindSurrounding()				#Find All adjacent Nodes
-			
-			for n in adj:									#For Each Adjacent Node
-				if(n not in self.closedNodes):					#If it is not in the closed list
-					if(n not in self.openNodes):					#And not in open list
-						if(self.goal in self.openNodes) or (self.curNode == self.goal):				#And if The Goal is in open list or current node is the goal, Break return True.
-							return True
-						
-						else:											#Else
-							n.parent = self.curNode							#Set Parent
-							n.SetH(self.CalculateH(n, self.goal))			#Set H
-							n.SetG(self.CalculateG(n, self.curNode))		#Set G
-							self.openNodes.append(n)						#Put on open list
-						
-					else:					#Else if the Node is on the open list
-						movecost = self.curNode.G + self.CalculateG(self.curNode, n)	#Calculate the G from current node to the other node
-						if(movecost < n.G):				#if that cost is less than the current 
-							n.parent = self.curNode		#Set parent
-							n.SetG(self.CalculateG(self.curNode, n)) 	#CalculateG
-							self.openNodes.sort(key = lambda x : x.f)	#Sort the list
-		return False	#if the open list is empty, return false
+#	def AStar(self):
+#		
+#		self.Start()									#Run the start function	
+#		while(len(self.openNodes) > 0):						#While there are nodes in the open list
+#			self.curNode = self.FindLowestF(self.openNodes)	#Find Node with the Lowest F score
+#			self.openNodes.remove(self.curNode)				#Remove Current Node from the open list
+#			self.closedNodes.append(self.curNode)			#Add Current Node to the Closed List
+#			adj = self.FindSurrounding()				#Find All adjacent Nodes
+#			
+#			for n in adj:									#For Each Adjacent Node
+#				if(n not in self.closedNodes):					#If it is not in the closed list
+#					if(n not in self.openNodes):					#And not in open list
+#						if(self.goal in self.openNodes) or (self.curNode == self.goal):				#And if The Goal is in open list or current node is the goal, Break return True.
+#							return True
+#						
+#						else:											#Else
+#							n.parent = self.curNode							#Set Parent
+#							n.SetH(self.CalculateH(n, self.goal))			#Set H
+#							n.SetG(self.CalculateG(n, self.curNode))		#Set G
+#							self.openNodes.append(n)						#Put on open list
+#						
+#					else:					#Else if the Node is on the open list
+#						movecost = self.curNode.G + self.CalculateG(self.curNode, n)	#Calculate the G from current node to the other node
+#						if(movecost < n.G):				#if that cost is less than the current 
+#							n.parent = self.curNode		#Set parent
+#							n.SetG(self.CalculateG(self.curNode, n)) 	#CalculateG
+#							self.openNodes.sort(key = lambda x : x.f)	#Sort the list
+#		return False	#if the open list is empty, return false
 
 	def DrawParent(self, screen, n1, n2):	#Draw from n1 to n2
 		pygame.draw.circle(screen, [255, 0, 0, 255], n1.center, 10)

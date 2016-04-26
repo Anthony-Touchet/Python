@@ -113,7 +113,7 @@ while not finish:
 			player.start = None
 			player.goal = None
 			
-		time.sleep(.5)
+	
 	if(path == False):
 		for l in player.searspace:
 			for n in l:
@@ -140,6 +140,6 @@ while not finish:
 		player.start = None
 		player.goal = None
 		
-		
+	time.sleep(.5)	
 	pygame.display.flip()
 #http://www.pygame.org/docs/
