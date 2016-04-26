@@ -80,16 +80,11 @@ while not finish:
 	
 			for n in adj:									#For Each Adjacent Node
 				if(n not in player.closedNodes):					#If it is not in the closed list
-					if(n not in player.openNodes):					#And not in open list
-						if(player.curNode == player.goal) or (player.goal in player.closedNodes):				#And if The Goal is in open list or current node is the goal, Break return True.
-							path = True
-							player.DrawPath(screen)
-						
-						else:											#Else
-							n.parent = player.curNode							#Set Parent
-							n.SetH(player.CalculateH(n, player.goal))			#Set H
-							n.SetG(player.CalculateG(n, player.curNode))		#Set G
-							player.openNodes.append(n)						#Put on open list
+					if(n not in player.openNodes):					#And not in open list						
+						n.parent = player.curNode							#Set Parent
+						n.SetH(player.CalculateH(n, player.goal))			#Set H
+						n.SetG(player.CalculateG(n, player.curNode))		#Set G
+						player.openNodes.append(n)						#Put on open list
 						
 					else:					#Else if the Node is on the open list
 						movecost = player.curNode.G + player.CalculateG(player.curNode, n)	#Calculate the G from current node to the other node
@@ -97,7 +92,10 @@ while not finish:
 							n.parent = player.curNode		#Set parent
 							n.SetG(player.CalculateG(player.curNode, n)) 	#CalculateG
 							player.openNodes.sort(key = lambda x : x.f)	#Sort the list
-		
+							
+			if(player.curNode == player.goal) or (player.goal in player.closedNodes):				#And if The Goal is in open list or current node is the goal, Break return True.
+				path = True
+				player.DrawPath(screen)
 		else:
 			pygame.draw.line(screen, [255, 0, 255, 255], [0, 0], [width, height], 10)
 			pygame.draw.line(screen, [255, 0, 255, 255], [0, height], [width, 0], 10)
