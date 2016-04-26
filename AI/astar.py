@@ -20,7 +20,7 @@ def Reset(screen, col, row):
 		searchspace.append(nodeHold) 									#Add row
 		ytrack += nodeHold[0].height + nodeHold[0].space	
 
-	AI = Astar(searchspace[1][1], searchspace, searchspace[col - 2][row - 2])	#AI	
+	AI = Astar(None, searchspace, None)	#AI	
 
 	for r in searchspace:				#For each list in the search space
 		for n in r:						#For each node in the list
@@ -28,7 +28,7 @@ def Reset(screen, col, row):
 			if(rand % 3 == 0) and (AI.curNode != n) and (AI.goal != n):		#If Random number is Divisable and the node isn't the AI or the goal
 				n.walkable = False 			#Set walkable to false
 			n.Draw(screen)					#Draw the node to the screen
-	AI.Draw(screen)
+	
 	return AI
 	
 pygame.init()
@@ -38,7 +38,7 @@ screen = pygame.display.set_mode(size)
 player = Reset(screen, 10, 10)
 
 finish = False
-started = False
+started = None
 path = False
 drawnode = player.goal
 while not finish:	
@@ -48,25 +48,24 @@ while not finish:
 		elif event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_SPACE:
 				finish = True
-#		elif event.type == pygame.MOUSEBUTTONDOWN:
-#			pos = pygame.mouse.get_pos()
-#			if player.start == None:
-#				for l in player.searspace:
-#					for n in l:
-#						if (n.x <= pos[0] <= n.x + n.width) and (n.y <= pos[1] <= n.y + n.height):
-#							player.start = n
-#			
-#			else:
-#				for l in player.searspace:
-#					for n in l:
-#						if (n.x <= pos[0] <= n.x + n.width) and (n.y <= pos[1] <= n.y + n.height):
-#							player.goal = n
-#							if(player.start != None) and (player.goal != None):
-#							started = False
-#							player.Draw(screen)
+		elif event.type == pygame.MOUSEBUTTONDOWN:
+			pos = pygame.mouse.get_pos()
+			if player.start == None:
+				for l in player.searspace:
+					for n in l:
+						if (n.x <= pos[0] <= n.x + n.width) and (n.y <= pos[1] <= n.y + n.height):
+							player.start = n
+							pygame.draw.rect(screen, [0, 255, 255, 255] ,[(player.start.x, player.start.y), (player.start.width, player.start.height)])
+			else:
+				for l in player.searspace:
+					for n in l:
+						if (n.x <= pos[0] <= n.x + n.width) and (n.y <= pos[1] <= n.y + n.height):
+							player.goal = n
+							if(player.start != None) and (player.goal != None):
+								started = False
+								pygame.draw.rect(screen, [150, 100, 255, 255] ,[(player.goal.x, player.goal.y), (player.goal.width, player.goal.height)])
 		
 	pygame.display.flip()
-	time.sleep(.5)
 	if started == False:
 		player.Start()
 		pygame.display.flip()
@@ -98,6 +97,7 @@ while not finish:
 							n.parent = player.curNode		#Set parent
 							n.SetG(player.CalculateG(player.curNode, n)) 	#CalculateG
 							player.openNodes.sort(key = lambda x : x.f)	#Sort the list
+		
 		else:
 			pygame.draw.line(screen, [255, 0, 255, 255], [0, 0], [width, height], 10)
 			pygame.draw.line(screen, [255, 0, 255, 255], [0, height], [width, 0], 10)
@@ -109,8 +109,11 @@ while not finish:
 			started = False
 			path = False
 			drawnode = player.goal
+			started = None
+			player.start = None
+			player.goal = None
 			
-	
+		time.sleep(.5)
 	if(path == False):
 		for l in player.searspace:
 			for n in l:
@@ -133,6 +136,10 @@ while not finish:
 		started = False
 		path = False
 		drawnode = player.goal
+		started = None
+		player.start = None
+		player.goal = None
+		
 		
 	pygame.display.flip()
 #http://www.pygame.org/docs/
