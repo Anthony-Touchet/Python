@@ -170,5 +170,5 @@ class Astar(object):
 	def DrawPath(self, screen):
 		cur = self.goal					#where the function will start drawing
 		while(cur.parent != None):		#While the parent of the current node is not empty
-			pygame.draw.line(screen, [255, 0, 255, 255], cur.center, cur.parent.center, 5)	#Draw line to that parent
+			pygame.draw.line(screen, [175, 0, 255, 255], cur.center, cur.parent.center, 5)	#Draw line to that parent
 			cur = cur.parent		#Set current node to that parent
