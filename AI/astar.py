@@ -48,18 +48,29 @@ while not finish:
 		elif event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_SPACE:
 				finish = True
+				
+			elif event.key == K_w:
+				pos = pygame.mouse.get_pos()
+				for l in player.searspace:
+					for n in l:
+						if (n.x <= pos[0] <= n.x + n.width) and (n.y <= pos[1] <= n.y + n.height):
+							n.walkable = True if(n.walkable == False) else	 False
+							n.Draw(screen)
+							
 		elif event.type == pygame.MOUSEBUTTONDOWN:
 			pos = pygame.mouse.get_pos()
 			if player.start == None:
 				for l in player.searspace:
 					for n in l:
 						if (n.x <= pos[0] <= n.x + n.width) and (n.y <= pos[1] <= n.y + n.height):
+							n.walkable = True
 							player.start = n
 							pygame.draw.rect(screen, [0, 255, 255, 255] ,[(player.start.x, player.start.y), (player.start.width, player.start.height)])
 			else:
 				for l in player.searspace:
 					for n in l:
 						if (n.x <= pos[0] <= n.x + n.width) and (n.y <= pos[1] <= n.y + n.height):
+							n.walkable = True
 							player.goal = n
 							if(player.start != None) and (player.goal != None):
 								started = False
@@ -138,6 +149,6 @@ while not finish:
 		player.start = None
 		player.goal = None
 		
-	time.sleep(.5)	
+	time.sleep(.25)	
 	pygame.display.flip()
 #http://www.pygame.org/docs/
