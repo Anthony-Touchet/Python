@@ -71,7 +71,7 @@ while not finish:
 		elif event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_SPACE:
 				finish = True
-#				
+				
 #			elif event.key == K_w:
 #				pos = pygame.mouse.get_pos()
 #				for l in player.searspace:
@@ -98,8 +98,5 @@ while not finish:
 #							if(player.start != None) and (player.goal != None):
 #								started = False
 #								pygame.draw.rect(screen, [150, 100, 255, 255] ,[(player.goal.x, player.goal.y), (player.goal.width, player.goal.height)])
-#								
-#	
-#				
 
 	pygame.display.flip()

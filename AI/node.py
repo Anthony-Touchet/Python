@@ -142,7 +142,10 @@ class Astar(object):
 			self.openNodes.remove(self.curNode)				#Remove Current Node from the open list
 			self.closedNodes.append(self.curNode)			#Add Current Node to the Closed List
 			adj = self.FindSurrounding()				#Find All adjacent Nodes
-	
+			
+			if(self.curNode == self.goal) or (self.goal in self.closedNodes):				#And if The Goal is in open list or current node is the goal, Break return True.
+				return True
+			
 			for n in adj:									#For Each Adjacent Node
 				if(n not in self.closedNodes):					#If it is not in the closed list
 					if(n not in self.openNodes):					#And not in open list						
@@ -158,8 +161,7 @@ class Astar(object):
 							n.SetG(self.CalculateG(self.curNode, n)) 	#CalculateG
 							self.openNodes.sort(key = lambda x : x.f)	#Sort the list
 							
-			if(self.curNode == self.goal) or (self.goal in self.closedNodes):				#And if The Goal is in open list or current node is the goal, Break return True.
-				return True
+			
 				
 		return False	#if the open list is empty, return false
 
