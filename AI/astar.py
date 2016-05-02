@@ -22,53 +22,53 @@ for r in range(0, 10):												#Create Grid
 	searchspace.append(nodeHold) 									#Add row
 	ytrack += nodeHold[0].height + nodeHold[0].space	
 
-AI = Astar(searchspace[1][1], searchspace, searchspace[8][8])	#AI	
+AI = Astar(searchspace[1][1], searchspace, searchspace[8][8])			#AI	
 
-for r in searchspace:				#For each list in the search space
-	for n in r:						#For each node in the list
-		rand = randrange(0, 5)		#Get Random number
+for r in searchspace:													#For each list in the search space
+	for n in r:															#For each node in the list
+		rand = randrange(0, 5)											#Get Random number
 		if(rand % 3 == 0) and (AI.curNode != n) and (AI.goal != n):		#If Random number is Divisable and the node isn't the AI or the goal
-			n.walkable = False 			#Set walkable to false
+			n.walkable = False 											#Set walkable to false
 		n.Draw(screen)	
 
 AI.Draw(screen)
 
-if(AI.AStar()):
-		for n in AI.openNodes:
-			if n != AI.goal:
-				pygame.draw.rect(screen, [0, 255, 0, 255] ,[(n.x, n.y), (n.width, n.height)])
-		for n in AI.closedNodes:
-			if(n != AI.start) and (n != AI.goal):
-				pygame.draw.rect(screen, [0, 0, 255, 255] ,[(n.x, n.y), (n.width, n.height)])
+if(AI.AStar()):						#if AStar finds the goal
+		for n in AI.openNodes:		#for each node in open list and if the node isn't the goal
+			if n != AI.goal:	
+				pygame.draw.rect(screen, [0, 255, 0, 255] ,[(n.x, n.y), (n.width, n.height)])	#mark it
+		for n in AI.closedNodes:																#for each node in the closed list
+			if(n != AI.start) and (n != AI.goal):												#If the node isn't the player or goal
+				pygame.draw.rect(screen, [0, 0, 255, 255] ,[(n.x, n.y), (n.width, n.height)])	#Mark it
 				
-		for l in AI.searspace:
-			for n in l:
-				if n.parent != None:
+		for l in AI.searspace:																	#for each list in the space
+			for n in l:																			#For each node in the list
+				if n.parent != None:															#if the node has a parent, draw to the parent
 					pygame.draw.line(screen, [255, 0, 0, 255], n.center, n.parent.center, 5)
 					pygame.draw.circle(screen, [255, 0, 0, 255], n.center, 10, 0)
-		AI.DrawPath(screen)
-else:
-	for n in AI.openNodes:
-		if n != AI.goal:
-			pygame.draw.rect(screen, [0, 255, 0, 255] ,[(n.x, n.y), (n.width, n.height)])
-	for n in AI.closedNodes:
-		if(n != AI.start) and (n != AI.goal):
-			pygame.draw.rect(screen, [0, 0, 255, 255] ,[(n.x, n.y), (n.width, n.height)])
+		AI.DrawPath(screen)																		#Draw path from the goal to the start
+else:								#If AStar return's false
+	for n in AI.openNodes:		#for each node in open list and if the node isn't the goal
+			if n != AI.goal:	
+				pygame.draw.rect(screen, [0, 255, 0, 255] ,[(n.x, n.y), (n.width, n.height)])	#mark it
+	for n in AI.closedNodes:																	#for each node in the closed list
+		if(n != AI.start) and (n != AI.goal):													#If the node isn't the player or goal
+			pygame.draw.rect(screen, [0, 0, 255, 255] ,[(n.x, n.y), (n.width, n.height)])		#Mark it
 				
-	for l in AI.searspace:
-		for n in l:
-			if n.parent != None:
+	for l in AI.searspace:																		#for each list in the space
+		for n in l:																				#For each node in the list
+			if n.parent != None:																#if the node has a parent, draw to the parent
 				pygame.draw.line(screen, [255, 0, 0, 255], n.center, n.parent.center, 5)
 				pygame.draw.circle(screen, [255, 0, 0, 255], n.center, 10, 0)
 	pygame.draw.line(screen, [100, 100, 100, 255], [0, 0], size, 10)
 		
 finish = False
 started = None
-while not finish:	
-	for event in pygame.event.get():
+while not finish:								#While not done
+	for event in pygame.event.get():			#Search for ending event
 		if event.type == pygame.QUIT:
 			finish = True
-		elif event.type == pygame.KEYDOWN:
+		elif event.type == pygame.KEYDOWN:		#else search for space bar to end program
 			if event.key == pygame.K_SPACE:
 				finish = True
 				
