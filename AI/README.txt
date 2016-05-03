@@ -39,10 +39,10 @@ The A* Algorithm:
 		4.Find the surrounding nodes of the current node and set it equal to a list.
 		5.(This step can be done in a variety of places but I believe this is where it is most useful) Check to see if the current node is the goal or if the goal is on the open list, if true, return true.
 		6.Next, the program will loop through all of the adjacent nodes and do calculations on them:
-		7.In the loop, the program will ask if it is in the closed list, if so skip this node, else continue.
-		8.If the node is not in the open list, the program will set the node’s parent to the current node, Calculate the G cost and the H cost, and add that node to the open list.
-		9.Else, if the node is already on the open list, the program will do some math. The program will calculate the G score to get from the current node to that node, add the current Node’s G, and set that number to a variable. The program will then ask, is this number less than the G cost of this node. If true, the program will set that Node’s parent to the current node and calculate the G and the H scores.
-		10.This last step is for if the goal has not been found and the while loop for the algorithm breaks. If the while loop breaks or finishes and true is not returned, return false.
+			a.In the loop, the program will ask if it is in the closed list, if so skip this node, else continue.
+			b.If the node is not in the open list, the program will set the node’s parent to the current node, Calculate the G cost and the H cost, and add that node to the open list.
+			c.Else, if the node is already on the open list, the program will do some math. The program will calculate the G score to get from the current node to that node, add the current Node’s G, and set that number to a variable. The program will then ask, is this number less than the G cost of this node. If true, the program will set that Node’s parent to the current node and calculate the G and the H scores.
+		7.This last step is for if the goal has not been found and the while loop for the algorithm breaks. If the while loop breaks or finishes and true is not returned, return false.
 
 	Drawing the Results:
 		In this Project, the file astar.py is mainly responsible for drawing the results to the screen and closing the progrm. This file will mark all closed nodes as dark blue, open nodes as green, impassable nodes as red, the start as light blue, and the goal as purple. The Screen will also draw a line to the parent of the node if the node has a parent. Lastly, if the project fails to find a path, a Grey line will be drawn from the top left corner to the bottom right corner. Else, a grey line will trace the path of parents from the goal back to the start.
