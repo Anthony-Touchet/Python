@@ -10,11 +10,8 @@ for string in inFile:
 		ors = 0;
 		
 		for char in string:
-			if char == '!':
+			if char == '!':			#Opporators
 				nots += 1;
-			
-			elif  char == ' ':
-				continue;
 			
 			elif  char == '&':
 				ands += 1;
@@ -22,24 +19,27 @@ for string in inFile:
 			elif  char == '|':
 				ors += 1;
 				
+			elif  char == ' ':		#Spaces and endings
+				continue;
+				
 			elif  char == '\n':
 				continue;
 				
-			elif  char == '(':
+			elif  char == '(':		#Clauses
 				clauseOpen = 1;
 				
 			elif  char == ')' and clauseOpen == 1:
 				numOfClauses += 1;
 				clauseOpen = 0;
 				
-			else:
-				if char in literals:
+			else:						#Literals
+				if char in literals:	#Checking to see if literals are already in list.
 					continue;
 					
-				literals.append(char);
+				literals.append(char);	#Putting Literals inside list
 		
-		literals.sort();
-		print(string);
+		literals.sort();					#clean up list
+		print(string);						#Print info on clause
 		print("Literals: ", literals);
 		print("# of NOTs: ", nots);
 		print("# of ANDs: ", ands);
