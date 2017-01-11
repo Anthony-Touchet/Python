@@ -1,5 +1,13 @@
 file = "expressions.txt"
 inFile = open(file,'r')
+
+print("| - OR");
+print("! - NOT");
+print("& - AND");
+print("( - Open Clause");
+print(") - Close Clause");
+print("\n");
+
 for string in inFile:
 	if(inFile):			
 		numOfClauses = 0;
@@ -39,11 +47,11 @@ for string in inFile:
 				literals.append(char);	#Putting Literals inside list
 		
 		literals.sort();					#clean up list
-		print(string);						#Print info on clause
-		print("Literals: ", literals);
-		print("# of NOTs: ", nots);
-		print("# of ANDs: ", ands);
-		print("# of ORs: ", ors);
-		print("Number of literals: ", len(literals));
-		print("Number of clauses: ", numOfClauses);
-		print("\n");
+		print string ;						#Print info on clause
+		print "Literals: ", literals ;
+		print "# of NOTs: ", nots ;
+		print "# of ANDs: ", ands ;
+		print "# of ORs: ", ors ;
+		print "Number of literals: ", len(literals) ;
+		print "Number of clauses: ", numOfClauses ;
+		print "\n" ;
