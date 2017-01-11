@@ -5,19 +5,22 @@ for string in inFile:
 		numOfClauses = 0;
 		literals = [];
 		clauseOpen = 0;
+		nots = 0;
+		ands = 0;
+		ors = 0;
 		
 		for char in string:
 			if char == '!':
-				continue;
+				nots += 1;
 			
 			elif  char == ' ':
 				continue;
 			
 			elif  char == '&':
-				continue;
+				ands += 1;
 				
 			elif  char == '|':
-				continue;
+				ors += 1;
 				
 			elif  char == '\n':
 				continue;
@@ -38,6 +41,9 @@ for string in inFile:
 		literals.sort();
 		print(string);
 		print("Literals: ", literals);
+		print("# of NOTs: ", nots);
+		print("# of ANDs: ", ands);
+		print("# of ORs: ", ors);
 		print("Number of literals: ", len(literals));
 		print("Number of clauses: ", numOfClauses);
 		print("\n");
