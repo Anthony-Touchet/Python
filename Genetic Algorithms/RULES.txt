@@ -1,0 +1,3 @@
+| is OR
+! is NOT
+& is AND
