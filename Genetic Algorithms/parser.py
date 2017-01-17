@@ -1,57 +1,82 @@
+import functions
+from functions import *
+
 file = "expressions.txt"
 inFile = open(file,'r')
 
-print("| - OR");
-print("! - NOT");
-print("& - AND");
-print("( - Open Clause");
-print(") - Close Clause");
-print("\n");
-
 for string in inFile:
 	if(inFile):			
-		numOfClauses = 0;
-		literals = [];
-		clauseOpen = 0;
-		nots = 0;
-		ands = 0;
-		ors = 0;
+		clauses = []
+		literals = []
+		values = [0, 1, 0]
+		inClause = "false";
 		
-		for char in string:
-			if char == '!':			#Opporators
-				nots += 1;
+		clausesString = "";
+		for char in string:			                        #Get The phrase
+			if char == '!' and inClause == "true":			#Opporators
+				clausesString += '~';
 			
-			elif  char == '&':
-				ands += 1;
+			elif  char == '&' and inClause == "true":
+				clausesString += char;
 				
-			elif  char == '|':
-				ors += 1;
+			elif  char == '|' and inClause == "true":
+				clausesString += char;
 				
-			elif  char == ' ':		#Spaces and endings
+			elif  char == ' ':		                        #Spaces and endings
 				continue;
 				
 			elif  char == '\n':
 				continue;
 				
-			elif  char == '(':		#Clauses
-				clauseOpen = 1;
+			elif  char == '(' and inClause == "false":		#Clauses
+				inClause = "true";
 				
-			elif  char == ')' and clauseOpen == 1:
-				numOfClauses += 1;
-				clauseOpen = 0;
-				
-			else:						#Literals
-				if char in literals:	#Checking to see if literals are already in list.
+			elif  char == ')' and inClause == "true":
+				inClause = "false";	
+				clauses.append(clausesString);
+				clausesString = "";
+			
+			elif inClause == "true":						#Literals
+				clausesString += char;
+				if char in literals:
 					continue;
-					
-				literals.append(char);	#Putting Literals inside list
+				literals.append(char);
 		
-		literals.sort();					#clean up list
-		print string ;						#Print info on clause
-		print "Literals: ", literals ;
-		print "# of NOTs: ", nots ;
-		print "# of ANDs: ", ands ;
-		print "# of ORs: ", ors ;
-		print "Number of literals: ", len(literals) ;
-		print "Number of clauses: ", numOfClauses ;
-		print "\n" ;
+		newClauses = []
+		tempstring = ""
+		for string in clauses:		                #Switch values
+			for char in string:
+			
+				if char == '~':			#Opporators
+					tempstring += '~'
+			
+				elif  char == '&':
+					tempstring += '&'
+				
+				elif  char == '|':
+					tempstring += '|'				
+			
+				else:						#Literals
+					index = FindMyIndex(literals, char)
+					tempstring += str(values[index])
+			
+			flip = 0
+			finalstring = ""
+			for char in tempstring:         #Do inverses of 1's and 0's
+				if flip == 1:
+					if char == '1':
+						finalstring += str(0)
+					
+					elif char == '0':
+						finalstring += str(1)
+					flip = 0
+			
+				elif char == '~' and flip == 0: #if Inverse operator
+					flip = 1
+					
+				else:
+					finalstring += char
+
+			print(eval(finalstring))
+			tempstring = ""
+			finalstring = ""
