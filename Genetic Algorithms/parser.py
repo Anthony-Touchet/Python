@@ -1,5 +1,6 @@
-import functions
-from functions import *
+import classes
+from classes import *
+import random
 
 file = "expressions.txt"
 inFile = open(file,'r')
@@ -40,28 +41,38 @@ for string in inFile:
 				if char in literals:
 					continue;
 				literals.append(char);
-                
-		popul = GenRandomValues(len(clauses))  ##Generate popul
-		parentSetStrong = []
-		parentSetWeak = []
-		
-		for value in popul:	#Finding the strongest pair
-			fitnessRatio = FlipAndEvaluation(clauses, literals, value)
-			if len(parentSetStrong) < 2:
-				parentSetStrong.append(value)
-				
-			else:
-				for parent in parentSetStrong:	
-					if fitnessRatio > value.FlipAndEvaluation(clauses, literals, parent):
-						parent = value
-						break
-		for value in popul:
-			if value not in parentSetStrong:
-				parentSetWeak.append(value)
-		
+        
 		##Offspring and Mutation
-		strongOffspring1 = CanidateToList(parentSetStrong[1])
-		strongOffspring2 = CanidateToList(parentSetStrong[0])
-		weakOffspring1 = CanidateToList(parentSetWeak[1])
-		weakOffspring2 = CanidateToList(parentSetWeak[0])
+		popul = GenRandomValues(len(clauses))  ##Generate popul
+		
+		breedableCanidates = popul
+		newPopulation = []
+		populationCount = len(breedableCanidates)
+		for parent in range(0, populationCount / 2):
+			firstParent = breedableCanidates[parent]
+			secondParent = Canidate("")
+			active = "true"
+			while active == "true":
+				secondParent = breedableCanidates[random.randrange(parent, len(breedableCanidates))]
+				if secondParent in breedableCanidates:
+					active = "false"
+			child1 = Canidate(secondParent.FlipFrontOffspring(clauses, CanidateToList(secondParent)))
+			child2 = Canidate(firstParent.FlipFrontOffspring(clauses, CanidateToList(firstParent)))
 			
+			newPopulation.append(child1)
+			newPopulation.append(child2)
+			if firstParent in breedableCanidates:
+				breedableCanidates.remove(firstParent)
+			if secondParent in breedableCanidates:
+				breedableCanidates.remove(secondParent)
+				
+			for can in newPopulation:
+				bitString = ""
+				for bit in can.value:
+					bitString += bit
+				can.value = bitString
+		
+		for newCan in newPopulation:
+			newCan.value = newCan.Mutate(14)
+
+		
