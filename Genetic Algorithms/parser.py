@@ -43,40 +43,59 @@ for string in inFile:
 				literals.append(char);
         
 		##Offspring and Mutation
-		popul = GenRandomValues(len(clauses))  ##Generate popul
-
-		breedableCanidates = []	#populate breeding population
-		for can in popul:
-			breedableCanidates.append(can)
+		popul = GenRandomValues(len(literals))  ##Generate popul
+		solutionFound = 0;
+		solution = None
+		while(solutionFound == 0):
+			for can in popul:
+				if can.Evaluation(clauses, literals, can) >= 1:
+					print(can.Evaluation(clauses, literals, can))
+					solution = can
+					solutionFound = 1;
+					break
 			
-		newPopulation = []
-		populationCount = len(breedableCanidates)
-		for parent in range(0, populationCount / 2):
-			firstParent = breedableCanidates[parent]
-			secondParent = Canidate("")
-			active = "true"
-			while active == "true":
-				secondParent = breedableCanidates[random.randrange(parent, len(breedableCanidates))]
-				if secondParent in breedableCanidates:
-					active = "false"
-			child1 = Canidate(secondParent.FlipFrontOffspring(clauses, CanidateToList(secondParent)))
-			child2 = Canidate(firstParent.FlipFrontOffspring(clauses, CanidateToList(firstParent)))
-			
-			newPopulation.append(child1)
-			newPopulation.append(child2)
-			if firstParent in breedableCanidates:
-				breedableCanidates.remove(firstParent)
-			if secondParent in breedableCanidates:
-				breedableCanidates.remove(secondParent)
+			breedableCanidates = []	#populate breeding population
+			for can in popul:
+				breedableCanidates.append(can)
 				
-			for can in newPopulation:
-				bitString = ""
-				for bit in can.value:
-					bitString += bit
-				can.value = bitString
-		
-		for newCan in newPopulation:
-			newCan.value = newCan.Mutate(14)
-			popul.append(newCan)
-
-		print(len(popul))	
+			newPopulation = []
+			populationCount = len(breedableCanidates)
+			for parent in range(0, populationCount / 2):
+				firstParent = breedableCanidates[parent]
+				secondParent = Canidate("")
+				active = "true"
+				while active == "true":
+					secondParent = breedableCanidates[random.randrange(parent, len(breedableCanidates))]
+					if secondParent in breedableCanidates:
+						active = "false"
+				child1 = Canidate(secondParent.FlipFrontOffspring(literals, CanidateToList(secondParent)))
+				child2 = Canidate(firstParent.FlipFrontOffspring(literals, CanidateToList(firstParent)))
+				
+				newPopulation.append(child1)
+				newPopulation.append(child2)
+				if firstParent in breedableCanidates:
+					breedableCanidates.remove(firstParent)
+				if secondParent in breedableCanidates:
+					breedableCanidates.remove(secondParent)
+					
+				for can in newPopulation:
+					bitString = ""
+					for bit in can.value:
+						bitString += bit
+					can.value = bitString
+			
+			for newCan in newPopulation:
+				newCan.value = newCan.Mutate(14)
+				popul.append(newCan)
+			
+			finalPopulation = []
+			for can in popul:
+				if len(finalPopulation) < 4:
+					finalPopulation.append(can)
+				else:
+					for check in finalPopulation:
+						if can.Evaluation(clauses, literals, can) > check.Evaluation(clauses, literals, check):
+							check = can
+						
+		print(string)
+		print("This is the solution: " + solution.value)

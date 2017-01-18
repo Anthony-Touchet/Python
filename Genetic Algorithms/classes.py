@@ -19,11 +19,11 @@ def FindMyIndex(list, case):
 		else:
 			int += 1;
 
-def GenRandomValues(clauseLength):
+def GenRandomValues(literalsLength):
         values = []
         for value in range(0, 4):
                 tempBitString = Canidate("")
-                for bit in range(0, clauseLength):
+                for bit in range(0, literalsLength):
                         rand = random.randrange(0, 100, 1)
                         if rand < 49:
                                 tempBitString.value += '1'
@@ -39,12 +39,12 @@ class Canidate(object):
 			bitstring += bit
 		self.value = bitstring
 		
-	def FlipFrontOffspring(self, clauses, value):
-		for bit in range(len(clauses) / 2, len(clauses)):
+	def FlipFrontOffspring(self, literals, value):
+		for bit in range(len(literals) / 2, len(literals)):
 			if value[bit] == '0':
-				value[bit - (len(clauses) / 2)] = '1'
+				value[bit - (len(literals) / 2)] = '1'
 			elif value[bit] == '1':
-				value[bit - (len(clauses) / 2)] = '0'
+				value[bit - (len(literals) / 2)] = '0'
 		return value
 	
 	def Evaluation(self, clauses, literals, value):
@@ -67,6 +67,7 @@ class Canidate(object):
 					tempstring += str(value.value[index])
 				
 			flip = 0
+			printString = ""
 			finalstring = ""
 			for char in tempstring:         #Do inverses of 1's and 0's
 				if flip == 1:
@@ -82,11 +83,13 @@ class Canidate(object):
 						
 				else:
 					finalstring += char
-
+			
 			chromoeval +=(eval(finalstring))
+			printString += finalstring
 			tempstring = ""
 			finalstring = ""
-		return chromoeval;
+		print(printString)
+		return chromoeval / len(literals);
 
 	def Mutate(self, mutationChance):
 		finalList = []
