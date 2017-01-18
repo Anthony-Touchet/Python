@@ -8,9 +8,8 @@ for string in inFile:
 	if(inFile):			
 		clauses = []
 		literals = []
-		values = [0, 1, 0]
+		popul = []
 		inClause = "false";
-		
 		clausesString = "";
 		for char in string:			                        #Get The phrase
 			if char == '!' and inClause == "true":			#Opporators
@@ -41,42 +40,28 @@ for string in inFile:
 				if char in literals:
 					continue;
 				literals.append(char);
+                
+		popul = GenRandomValues(len(clauses))  ##Generate popul
+		parentSetStrong = []
+		parentSetWeak = []
 		
-		newClauses = []
-		tempstring = ""
-		for string in clauses:		                #Switch values
-			for char in string:
-			
-				if char == '~':			#Opporators
-					tempstring += '~'
-			
-				elif  char == '&':
-					tempstring += '&'
+		for value in popul:	#Finding the strongest pair
+			fitnessRatio = FlipAndEvaluation(clauses, literals, value)
+			if len(parentSetStrong) < 2:
+				parentSetStrong.append(value)
 				
-				elif  char == '|':
-					tempstring += '|'				
+			else:
+				for parent in parentSetStrong:	
+					if fitnessRatio > value.FlipAndEvaluation(clauses, literals, parent):
+						parent = value
+						break
+		for value in popul:
+			if value not in parentSetStrong:
+				parentSetWeak.append(value)
+		
+		##Offspring and Mutation
+		strongOffspring1 = CanidateToList(parentSetStrong[1])
+		strongOffspring2 = CanidateToList(parentSetStrong[0])
+		weakOffspring1 = CanidateToList(parentSetWeak[1])
+		weakOffspring2 = CanidateToList(parentSetWeak[0])
 			
-				else:						#Literals
-					index = FindMyIndex(literals, char)
-					tempstring += str(values[index])
-			
-			flip = 0
-			finalstring = ""
-			for char in tempstring:         #Do inverses of 1's and 0's
-				if flip == 1:
-					if char == '1':
-						finalstring += str(0)
-					
-					elif char == '0':
-						finalstring += str(1)
-					flip = 0
-			
-				elif char == '~' and flip == 0: #if Inverse operator
-					flip = 1
-					
-				else:
-					finalstring += char
-
-			print(eval(finalstring))
-			tempstring = ""
-			finalstring = ""
