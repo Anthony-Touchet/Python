@@ -44,8 +44,11 @@ for string in inFile:
         
 		##Offspring and Mutation
 		popul = GenRandomValues(len(clauses))  ##Generate popul
-		
-		breedableCanidates = popul
+
+		breedableCanidates = []	#populate breeding population
+		for can in popul:
+			breedableCanidates.append(can)
+			
 		newPopulation = []
 		populationCount = len(breedableCanidates)
 		for parent in range(0, populationCount / 2):
@@ -74,5 +77,6 @@ for string in inFile:
 		
 		for newCan in newPopulation:
 			newCan.value = newCan.Mutate(14)
+			popul.append(newCan)
 
-		
+		print(len(popul))	
