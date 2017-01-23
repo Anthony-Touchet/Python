@@ -104,7 +104,8 @@ class Canidate(object):
 		return bitString
 	
 	def PrintCanidate(self, expression, fittness):
-		print ("Expression: " + expression)
-		print("Value: " + self.value)
-		print("Fittness: " + str(fittness))
-		print("\n")
+		log = ""
+		log +=("Value: " + self.value + " ")
+		log +=("Fittness: " + str(fittness) + " ")
+		log += " \n "
+		return log

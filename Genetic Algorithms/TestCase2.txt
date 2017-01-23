@@ -1,0 +1,1013 @@
+(a)&(b)&(c)&(d)&(e)&(f)&(g)&(h)&(i)&(~m)
+
+Inital population:
+ Canidate #1 : 1110101111
+ Canidate #2 : 0101010011
+ Canidate #3 : 1111000010
+ Canidate #4 : 1010111001
+ Canidate #5 : 0011100000
+ Canidate #6 : 0110011110
+ Canidate #7 : 1110110000
+ Canidate #8 : 1001000011
+ Canidate #9 : 1000010110
+ Canidate #10 : 1010010010
+ Canidate #11 : 0000001011
+ Canidate #12 : 1000100010
+
+
+Gen #1
+ Value: 0011001011 Fittness: 0.4
+ Value: 1000001011 Fittness: 0.3
+ Value: 1110010000 Fittness: 0.5
+ Value: 0011011001 Fittness: 0.4
+ Value: 1111000010 Fittness: 0.6
+ Value: 0000011110 Fittness: 0.5
+ Value: 1010001011 Fittness: 0.4
+ Value: 0100110110 Fittness: 0.6
+ Value: 1110101111 Fittness: 0.7
+ Value: 0101010011 Fittness: 0.4
+
+Gen #2
+ Value: 0010100110 Fittness: 0.5
+ Value: 0010101110 Fittness: 0.6
+ Value: 0111110100 Fittness: 0.7
+ Value: 0011110010 Fittness: 0.6
+ Value: 0000111100 Fittness: 0.5
+ Value: 0000101110 Fittness: 0.5
+ Value: 0100110111 Fittness: 0.5
+ Value: 0110100110 Fittness: 0.6
+ Value: 0011001011 Fittness: 0.4
+ Value: 1000001011 Fittness: 0.3
+
+Gen #3
+ Value: 0101000110 Fittness: 0.5
+ Value: 1100100110 Fittness: 0.6
+ Value: 0100001100 Fittness: 0.4
+ Value: 0111110010 Fittness: 0.7
+ Value: 1000001110 Fittness: 0.5
+ Value: 1000101010 Fittness: 0.5
+ Value: 1110001011 Fittness: 0.5
+ Value: 1110101011 Fittness: 0.6
+ Value: 0010100110 Fittness: 0.5
+ Value: 0010101110 Fittness: 0.6
+
+Gen #4
+ Value: 1101110010 Fittness: 0.7
+ Value: 1001101110 Fittness: 0.7
+ Value: 1000101110 Fittness: 0.6
+ Value: 1001101100 Fittness: 0.6
+ Value: 1100000111 Fittness: 0.4
+ Value: 1010000011 Fittness: 0.3
+ Value: 1000101000 Fittness: 0.4
+ Value: 1000110110 Fittness: 0.6
+ Value: 0101000110 Fittness: 0.5
+ Value: 1100100110 Fittness: 0.6
+
+Gen #5
+ Value: 1110101110 Fittness: 0.8
+ Value: 0101110010 Fittness: 0.6
+ Value: 1111010001 Fittness: 0.5
+ Value: 0001101110 Fittness: 0.6
+ Value: 0000010111 Fittness: 0.3
+ Value: 1011101001 Fittness: 0.5
+ Value: 1100100110 Fittness: 0.6
+ Value: 1000100110 Fittness: 0.5
+ Value: 1101110010 Fittness: 0.7
+ Value: 1001101110 Fittness: 0.7
+
+Gen #6
+ Value: 0110100101 Fittness: 0.4
+ Value: 1000101110 Fittness: 0.6
+ Value: 1000100111 Fittness: 0.4
+ Value: 0111010001 Fittness: 0.4
+ Value: 0111100110 Fittness: 0.7
+ Value: 1111001001 Fittness: 0.5
+ Value: 0000000111 Fittness: 0.2
+ Value: 1010101110 Fittness: 0.7
+ Value: 1110101110 Fittness: 0.8
+ Value: 0101110010 Fittness: 0.6
+
+Gen #7
+ Value: 0000101100 Fittness: 0.4
+ Value: 1001001101 Fittness: 0.4
+ Value: 1100000111 Fittness: 0.4
+ Value: 1111000011 Fittness: 0.5
+ Value: 0101101110 Fittness: 0.7
+ Value: 1100000110 Fittness: 0.5
+ Value: 0110100010 Fittness: 0.5
+ Value: 0110110010 Fittness: 0.6
+ Value: 0110100101 Fittness: 0.4
+ Value: 1000101110 Fittness: 0.6
+
+Gen #8
+ Value: 0101101111 Fittness: 0.6
+ Value: 0101001000 Fittness: 0.4
+ Value: 1000101010 Fittness: 0.5
+ Value: 1110100001 Fittness: 0.4
+ Value: 1110101011 Fittness: 0.6
+ Value: 1100100110 Fittness: 0.6
+ Value: 1010000101 Fittness: 0.3
+ Value: 1111010101 Fittness: 0.6
+ Value: 0000101100 Fittness: 0.4
+ Value: 1001001101 Fittness: 0.4
+
+Gen #9
+ Value: 1100011101 Fittness: 0.5
+ Value: 1000001111 Fittness: 0.4
+ Value: 0101010100 Fittness: 0.5
+ Value: 1010100011 Fittness: 0.4
+ Value: 1100101110 Fittness: 0.7
+ Value: 1010001011 Fittness: 0.4
+ Value: 1001011100 Fittness: 0.6
+ Value: 1001111101 Fittness: 0.6
+ Value: 0101101111 Fittness: 0.6
+ Value: 0101001000 Fittness: 0.4
+
+Gen #10
+ Value: 0101110100 Fittness: 0.6
+ Value: 0101110111 Fittness: 0.6
+ Value: 1110000011 Fittness: 0.4
+ Value: 1010100111 Fittness: 0.5
+ Value: 1000001110 Fittness: 0.5
+ Value: 1010001000 Fittness: 0.4
+ Value: 0001010101 Fittness: 0.3
+ Value: 0100111111 Fittness: 0.6
+ Value: 1100011101 Fittness: 0.5
+ Value: 1000001111 Fittness: 0.4
+
+Gen #11
+ Value: 1000101110 Fittness: 0.6
+ Value: 0111010100 Fittness: 0.6
+ Value: 0101010101 Fittness: 0.4
+ Value: 1110000011 Fittness: 0.4
+ Value: 1001001101 Fittness: 0.4
+ Value: 1011101100 Fittness: 0.7
+ Value: 1000000111 Fittness: 0.3
+ Value: 1010101001 Fittness: 0.4
+ Value: 0101110100 Fittness: 0.6
+ Value: 0101110111 Fittness: 0.6
+
+Gen #12
+ Value: 0101110100 Fittness: 0.6
+ Value: 1000111110 Fittness: 0.7
+ Value: 0101111111 Fittness: 0.7
+ Value: 0101011101 Fittness: 0.5
+ Value: 1100000111 Fittness: 0.4
+ Value: 1011001101 Fittness: 0.5
+ Value: 1011001001 Fittness: 0.4
+ Value: 1101101001 Fittness: 0.5
+ Value: 1000101110 Fittness: 0.6
+ Value: 0111010100 Fittness: 0.6
+
+Gen #13
+ Value: 0100010101 Fittness: 0.3
+ Value: 0000110110 Fittness: 0.5
+ Value: 1000011101 Fittness: 0.4
+ Value: 0010111110 Fittness: 0.7
+ Value: 1011011000 Fittness: 0.6
+ Value: 1011001001 Fittness: 0.4
+ Value: 0101111100 Fittness: 0.7
+ Value: 0101000000 Fittness: 0.3
+ Value: 0101110100 Fittness: 0.6
+ Value: 1000111110 Fittness: 0.7
+
+Gen #14
+ Value: 1011100000 Fittness: 0.5
+ Value: 0101010101 Fittness: 0.4
+ Value: 1011101001 Fittness: 0.5
+ Value: 0001011100 Fittness: 0.5
+ Value: 0011011000 Fittness: 0.5
+ Value: 0000101110 Fittness: 0.5
+ Value: 0000100110 Fittness: 0.4
+ Value: 0001110100 Fittness: 0.5
+ Value: 0100010101 Fittness: 0.3
+ Value: 0000110110 Fittness: 0.5
+
+Gen #15
+ Value: 0111101000 Fittness: 0.6
+ Value: 1111010000 Fittness: 0.6
+ Value: 1001110110 Fittness: 0.7
+ Value: 1011001001 Fittness: 0.4
+ Value: 0101110100 Fittness: 0.6
+ Value: 0001100100 Fittness: 0.4
+ Value: 1001000100 Fittness: 0.4
+ Value: 0101010100 Fittness: 0.5
+ Value: 1011100000 Fittness: 0.5
+ Value: 0101010101 Fittness: 0.4
+
+Gen #16
+ Value: 0011001001 Fittness: 0.3
+ Value: 1011100000 Fittness: 0.5
+ Value: 0101010001 Fittness: 0.3
+ Value: 0100100110 Fittness: 0.5
+ Value: 0101011000 Fittness: 0.5
+ Value: 1110001101 Fittness: 0.5
+ Value: 0110100001 Fittness: 0.3
+ Value: 1111101000 Fittness: 0.7
+ Value: 0111101000 Fittness: 0.6
+ Value: 1111010000 Fittness: 0.6
+
+Gen #17
+ Value: 1111000001 Fittness: 0.4
+ Value: 0010001001 Fittness: 0.2
+ Value: 0011110000 Fittness: 0.5
+ Value: 0011011100 Fittness: 0.6
+ Value: 0111001100 Fittness: 0.6
+ Value: 1001001111 Fittness: 0.5
+ Value: 0100110000 Fittness: 0.4
+ Value: 1111101100 Fittness: 0.8
+ Value: 0011001001 Fittness: 0.3
+ Value: 1011100000 Fittness: 0.5
+
+Gen #18
+ Value: 1100001111 Fittness: 0.5
+ Value: 1111000001 Fittness: 0.4
+ Value: 1111011011 Fittness: 0.7
+ Value: 0111110000 Fittness: 0.6
+ Value: 1101111100 Fittness: 0.8
+ Value: 1101101110 Fittness: 0.8
+ Value: 1111000011 Fittness: 0.5
+ Value: 1001111100 Fittness: 0.7
+ Value: 1111000001 Fittness: 0.4
+ Value: 0010001001 Fittness: 0.2
+
+Gen #19
+ Value: 0001101100 Fittness: 0.5
+ Value: 1000101111 Fittness: 0.5
+ Value: 1111010001 Fittness: 0.5
+ Value: 1010111011 Fittness: 0.6
+ Value: 0000001011 Fittness: 0.2
+ Value: 0001110101 Fittness: 0.4
+ Value: 1111010111 Fittness: 0.7
+ Value: 1110001001 Fittness: 0.4
+ Value: 1100001111 Fittness: 0.5
+ Value: 1111000001 Fittness: 0.4
+
+Gen #20
+ Value: 1111110101 Fittness: 0.7
+ Value: 1000101101 Fittness: 0.4
+ Value: 1000011011 Fittness: 0.4
+ Value: 0101010101 Fittness: 0.4
+ Value: 0100000111 Fittness: 0.3
+ Value: 0110001011 Fittness: 0.4
+ Value: 1111000001 Fittness: 0.4
+ Value: 1101000001 Fittness: 0.3
+ Value: 0001101100 Fittness: 0.5
+ Value: 1000101111 Fittness: 0.5
+
+Gen #21
+ Value: 1001001111 Fittness: 0.5
+ Value: 0111000101 Fittness: 0.4
+ Value: 1000101100 Fittness: 0.5
+ Value: 0010001001 Fittness: 0.2
+ Value: 1100110111 Fittness: 0.6
+ Value: 1100100111 Fittness: 0.5
+ Value: 1111000001 Fittness: 0.4
+ Value: 1111001001 Fittness: 0.5
+ Value: 1111110101 Fittness: 0.7
+ Value: 1000101101 Fittness: 0.4
+
+Gen #22
+ Value: 0110100111 Fittness: 0.5
+ Value: 1000101111 Fittness: 0.5
+ Value: 0101000100 Fittness: 0.4
+ Value: 1011111100 Fittness: 0.8
+ Value: 0011101001 Fittness: 0.4
+ Value: 1100000000 Fittness: 0.3
+ Value: 1001001100 Fittness: 0.5
+ Value: 1101011101 Fittness: 0.6
+ Value: 1001001111 Fittness: 0.5
+ Value: 0111000101 Fittness: 0.4
+
+Gen #23
+ Value: 0000101100 Fittness: 0.4
+ Value: 1100000111 Fittness: 0.4
+ Value: 1101100011 Fittness: 0.5
+ Value: 0000100100 Fittness: 0.3
+ Value: 1101000000 Fittness: 0.4
+ Value: 1101000110 Fittness: 0.6
+ Value: 0000001111 Fittness: 0.3
+ Value: 0001011101 Fittness: 0.4
+ Value: 0110100111 Fittness: 0.5
+ Value: 1000101111 Fittness: 0.5
+
+Gen #24
+ Value: 1000001100 Fittness: 0.4
+ Value: 1000100100 Fittness: 0.4
+ Value: 0111100000 Fittness: 0.5
+ Value: 1111000111 Fittness: 0.6
+ Value: 1000011111 Fittness: 0.5
+ Value: 1010100011 Fittness: 0.4
+ Value: 1000001111 Fittness: 0.4
+ Value: 1000001110 Fittness: 0.5
+ Value: 0000101100 Fittness: 0.4
+ Value: 1100000111 Fittness: 0.4
+
+Gen #25
+ Value: 1110010011 Fittness: 0.5
+ Value: 0101101010 Fittness: 0.6
+ Value: 1100101100 Fittness: 0.6
+ Value: 1111000000 Fittness: 0.5
+ Value: 0000000111 Fittness: 0.2
+ Value: 0000011100 Fittness: 0.4
+ Value: 1001101101 Fittness: 0.5
+ Value: 1000101100 Fittness: 0.5
+ Value: 1000001100 Fittness: 0.4
+ Value: 1000100100 Fittness: 0.4
+
+Gen #26
+ Value: 0111100000 Fittness: 0.5
+ Value: 0110000011 Fittness: 0.3
+ Value: 1101001111 Fittness: 0.6
+ Value: 1001100100 Fittness: 0.5
+ Value: 1001101100 Fittness: 0.6
+ Value: 1001101101 Fittness: 0.5
+ Value: 1100000100 Fittness: 0.4
+ Value: 1111101100 Fittness: 0.8
+ Value: 1110010011 Fittness: 0.5
+ Value: 0101101010 Fittness: 0.6
+
+Gen #27
+ Value: 1011100000 Fittness: 0.5
+ Value: 0101100000 Fittness: 0.4
+ Value: 0100100100 Fittness: 0.4
+ Value: 1000011111 Fittness: 0.5
+ Value: 0100010011 Fittness: 0.3
+ Value: 0001101101 Fittness: 0.4
+ Value: 1010100010 Fittness: 0.5
+ Value: 1001101100 Fittness: 0.6
+ Value: 0111100000 Fittness: 0.5
+ Value: 0110000011 Fittness: 0.3
+
+Gen #28
+ Value: 1110101000 Fittness: 0.6
+ Value: 1011110010 Fittness: 0.7
+ Value: 1111000100 Fittness: 0.6
+ Value: 1101100100 Fittness: 0.6
+ Value: 1001111100 Fittness: 0.7
+ Value: 0111111011 Fittness: 0.7
+ Value: 1110110010 Fittness: 0.7
+ Value: 1110010010 Fittness: 0.6
+ Value: 1011100000 Fittness: 0.5
+ Value: 0101100000 Fittness: 0.4
+
+Gen #29
+ Value: 1111110000 Fittness: 0.7
+ Value: 0001101000 Fittness: 0.4
+ Value: 0010011001 Fittness: 0.3
+ Value: 1111100100 Fittness: 0.7
+ Value: 0010011010 Fittness: 0.5
+ Value: 1001110100 Fittness: 0.6
+ Value: 1101100010 Fittness: 0.6
+ Value: 1111100000 Fittness: 0.6
+ Value: 1110101000 Fittness: 0.6
+ Value: 1011110010 Fittness: 0.7
+
+Gen #30
+ Value: 1110000000 Fittness: 0.4
+ Value: 0111110010 Fittness: 0.7
+ Value: 0011000000 Fittness: 0.3
+ Value: 1100011001 Fittness: 0.4
+ Value: 1010111001 Fittness: 0.5
+ Value: 0010111000 Fittness: 0.5
+ Value: 1010110010 Fittness: 0.6
+ Value: 1111100000 Fittness: 0.6
+ Value: 1111110000 Fittness: 0.7
+ Value: 0001101000 Fittness: 0.4
+
+Gen #31
+ Value: 0110110110 Fittness: 0.7
+ Value: 1111111000 Fittness: 0.8
+ Value: 1111000010 Fittness: 0.6
+ Value: 1010011010 Fittness: 0.6
+ Value: 1100110010 Fittness: 0.6
+ Value: 0011110010 Fittness: 0.6
+ Value: 1111111000 Fittness: 0.8
+ Value: 1110101001 Fittness: 0.5
+ Value: 1110000000 Fittness: 0.4
+ Value: 0111110010 Fittness: 0.7
+
+Gen #32
+ Value: 0110110111 Fittness: 0.6
+ Value: 0110110101 Fittness: 0.5
+ Value: 0100110010 Fittness: 0.5
+ Value: 1110100010 Fittness: 0.6
+ Value: 0010011111 Fittness: 0.5
+ Value: 0111100010 Fittness: 0.6
+ Value: 0111110010 Fittness: 0.7
+ Value: 0110011000 Fittness: 0.5
+ Value: 0110110110 Fittness: 0.7
+ Value: 1111111000 Fittness: 0.8
+
+Gen #33
+ Value: 0101010101 Fittness: 0.4
+ Value: 0100010010 Fittness: 0.4
+ Value: 0100110110 Fittness: 0.6
+ Value: 0110110110 Fittness: 0.7
+ Value: 0011111100 Fittness: 0.7
+ Value: 1100111010 Fittness: 0.7
+ Value: 0011110110 Fittness: 0.7
+ Value: 0011011000 Fittness: 0.5
+ Value: 0110110111 Fittness: 0.6
+ Value: 0110110101 Fittness: 0.5
+
+Gen #34
+ Value: 0100110111 Fittness: 0.5
+ Value: 1011011101 Fittness: 0.6
+ Value: 0100110110 Fittness: 0.6
+ Value: 1110011110 Fittness: 0.8
+ Value: 0011010011 Fittness: 0.4
+ Value: 0110111110 Fittness: 0.8
+ Value: 0001010101 Fittness: 0.3
+ Value: 0000001111 Fittness: 0.3
+ Value: 0101010101 Fittness: 0.4
+ Value: 0100010010 Fittness: 0.4
+
+Gen #35
+ Value: 0000111110 Fittness: 0.6
+ Value: 0100111111 Fittness: 0.6
+ Value: 0101000101 Fittness: 0.3
+ Value: 0110110110 Fittness: 0.7
+ Value: 0110010001 Fittness: 0.3
+ Value: 0010010001 Fittness: 0.2
+ Value: 0110010110 Fittness: 0.6
+ Value: 1010001111 Fittness: 0.5
+ Value: 0100110111 Fittness: 0.5
+ Value: 1011011101 Fittness: 0.6
+
+Gen #36
+ Value: 1100000101 Fittness: 0.3
+ Value: 0010111110 Fittness: 0.7
+ Value: 1000001111 Fittness: 0.4
+ Value: 0000010010 Fittness: 0.3
+ Value: 1101010111 Fittness: 0.6
+ Value: 0100010001 Fittness: 0.2
+ Value: 0001001101 Fittness: 0.3
+ Value: 0101001101 Fittness: 0.4
+ Value: 0000111110 Fittness: 0.6
+ Value: 0100111111 Fittness: 0.6
+
+Gen #37
+ Value: 1001111111 Fittness: 0.7
+ Value: 1101000101 Fittness: 0.4
+ Value: 1100110010 Fittness: 0.6
+ Value: 1001001111 Fittness: 0.5
+ Value: 0000011001 Fittness: 0.2
+ Value: 1111010001 Fittness: 0.5
+ Value: 0001000101 Fittness: 0.2
+ Value: 1001101101 Fittness: 0.5
+ Value: 1100000101 Fittness: 0.3
+ Value: 0010111110 Fittness: 0.7
+
+Gen #38
+ Value: 1101110101 Fittness: 0.6
+ Value: 0000011101 Fittness: 0.3
+ Value: 0100000011 Fittness: 0.2
+ Value: 1001001111 Fittness: 0.5
+ Value: 1101000101 Fittness: 0.4
+ Value: 1001111001 Fittness: 0.5
+ Value: 0000111011 Fittness: 0.4
+ Value: 0010111110 Fittness: 0.7
+ Value: 1001111111 Fittness: 0.7
+ Value: 1101000101 Fittness: 0.4
+
+Gen #39
+ Value: 0010010100 Fittness: 0.4
+ Value: 0101010011 Fittness: 0.4
+ Value: 0100111111 Fittness: 0.6
+ Value: 0000001111 Fittness: 0.3
+ Value: 1101000101 Fittness: 0.4
+ Value: 0011011000 Fittness: 0.5
+ Value: 0010110011 Fittness: 0.4
+ Value: 1000101000 Fittness: 0.4
+ Value: 1101110101 Fittness: 0.6
+ Value: 0000011101 Fittness: 0.3
+
+Gen #40
+ Value: 0110001011 Fittness: 0.4
+ Value: 0001110000 Fittness: 0.4
+ Value: 0101000101 Fittness: 0.3
+ Value: 1100100111 Fittness: 0.5
+ Value: 0001011101 Fittness: 0.4
+ Value: 0001010011 Fittness: 0.3
+ Value: 1101010101 Fittness: 0.5
+ Value: 0100010101 Fittness: 0.3
+ Value: 0010010100 Fittness: 0.4
+ Value: 0101010011 Fittness: 0.4
+
+Gen #41
+ Value: 1111010000 Fittness: 0.6
+ Value: 1011100011 Fittness: 0.5
+ Value: 0110010001 Fittness: 0.3
+ Value: 1100000111 Fittness: 0.4
+ Value: 0100010011 Fittness: 0.3
+ Value: 0101000001 Fittness: 0.2
+ Value: 0101111110 Fittness: 0.8
+ Value: 0111110100 Fittness: 0.7
+ Value: 0110001011 Fittness: 0.4
+ Value: 0001110000 Fittness: 0.4
+
+Gen #42
+ Value: 1111010111 Fittness: 0.7
+ Value: 1111111001 Fittness: 0.7
+ Value: 0100000011 Fittness: 0.2
+ Value: 1010000111 Fittness: 0.4
+ Value: 1010001011 Fittness: 0.4
+ Value: 0000111110 Fittness: 0.6
+ Value: 1111110000 Fittness: 0.7
+ Value: 0111110000 Fittness: 0.6
+ Value: 1111010000 Fittness: 0.6
+ Value: 1011100011 Fittness: 0.5
+
+Gen #43
+ Value: 0111001110 Fittness: 0.7
+ Value: 0100011011 Fittness: 0.4
+ Value: 1110010001 Fittness: 0.4
+ Value: 1110110011 Fittness: 0.6
+ Value: 0000001010 Fittness: 0.3
+ Value: 1010101000 Fittness: 0.5
+ Value: 0111111000 Fittness: 0.7
+ Value: 1111110000 Fittness: 0.7
+ Value: 1111010111 Fittness: 0.7
+ Value: 1111111001 Fittness: 0.7
+
+Gen #44
+ Value: 1011101010 Fittness: 0.7
+ Value: 0000101000 Fittness: 0.3
+ Value: 0001101000 Fittness: 0.4
+ Value: 0011010101 Fittness: 0.4
+ Value: 1110110000 Fittness: 0.6
+ Value: 0111101011 Fittness: 0.6
+ Value: 1011001001 Fittness: 0.4
+ Value: 0111011001 Fittness: 0.5
+ Value: 0111001110 Fittness: 0.7
+ Value: 0100011011 Fittness: 0.4
+
+Gen #45
+ Value: 1110101000 Fittness: 0.6
+ Value: 1011101010 Fittness: 0.7
+ Value: 0101011101 Fittness: 0.5
+ Value: 0111010101 Fittness: 0.5
+ Value: 0010011011 Fittness: 0.4
+ Value: 1010001011 Fittness: 0.4
+ Value: 1010101110 Fittness: 0.7
+ Value: 0011111000 Fittness: 0.6
+ Value: 1011101010 Fittness: 0.7
+ Value: 0000101000 Fittness: 0.3
+
+Gen #46
+ Value: 1011001001 Fittness: 0.4
+ Value: 1011111000 Fittness: 0.7
+ Value: 0011010101 Fittness: 0.4
+ Value: 0001001101 Fittness: 0.3
+ Value: 0010101011 Fittness: 0.4
+ Value: 0000001110 Fittness: 0.4
+ Value: 1101000000 Fittness: 0.4
+ Value: 1011101000 Fittness: 0.6
+ Value: 1110101000 Fittness: 0.6
+ Value: 1011101010 Fittness: 0.7
+
+Gen #47
+ Value: 1011001100 Fittness: 0.6
+ Value: 1011010010 Fittness: 0.6
+ Value: 1111100000 Fittness: 0.6
+ Value: 0110010101 Fittness: 0.4
+ Value: 1000101011 Fittness: 0.4
+ Value: 1010100011 Fittness: 0.4
+ Value: 1010001010 Fittness: 0.5
+ Value: 0011101010 Fittness: 0.6
+ Value: 1011001001 Fittness: 0.4
+ Value: 1011111000 Fittness: 0.7
+
+Gen #48
+ Value: 1001101100 Fittness: 0.6
+ Value: 1001101101 Fittness: 0.5
+ Value: 1010101010 Fittness: 0.6
+ Value: 1111000000 Fittness: 0.5
+ Value: 1010101110 Fittness: 0.7
+ Value: 1010001011 Fittness: 0.4
+ Value: 1011001001 Fittness: 0.4
+ Value: 1011000001 Fittness: 0.3
+ Value: 1011001100 Fittness: 0.6
+ Value: 1011010010 Fittness: 0.6
+
+Gen #49
+ Value: 1101001001 Fittness: 0.4
+ Value: 1100001100 Fittness: 0.5
+ Value: 1101101000 Fittness: 0.6
+ Value: 1011100001 Fittness: 0.4
+ Value: 1010001101 Fittness: 0.4
+ Value: 1010001111 Fittness: 0.5
+ Value: 1101101100 Fittness: 0.7
+ Value: 0001101000 Fittness: 0.4
+ Value: 1001101100 Fittness: 0.6
+ Value: 1001101101 Fittness: 0.5
+
+Gen #50
+ Value: 1011101001 Fittness: 0.5
+ Value: 0011101001 Fittness: 0.4
+ Value: 1111000001 Fittness: 0.4
+ Value: 0111011000 Fittness: 0.6
+ Value: 1001100100 Fittness: 0.5
+ Value: 0000100111 Fittness: 0.3
+ Value: 1011011101 Fittness: 0.6
+ Value: 1000101101 Fittness: 0.4
+ Value: 1101001001 Fittness: 0.4
+ Value: 1100001100 Fittness: 0.5
+
+Gen #51
+ Value: 1101100100 Fittness: 0.6
+ Value: 1011001001 Fittness: 0.4
+ Value: 0011011000 Fittness: 0.5
+ Value: 1111000001 Fittness: 0.4
+ Value: 0001011010 Fittness: 0.5
+ Value: 0001011101 Fittness: 0.4
+ Value: 1000101000 Fittness: 0.4
+ Value: 1011000011 Fittness: 0.4
+ Value: 1011101001 Fittness: 0.5
+ Value: 0011101001 Fittness: 0.4
+
+Gen #52
+ Value: 1011011100 Fittness: 0.7
+ Value: 1001100110 Fittness: 0.6
+ Value: 0100000001 Fittness: 0.1
+ Value: 1110010001 Fittness: 0.4
+ Value: 1010011000 Fittness: 0.5
+ Value: 0001011111 Fittness: 0.5
+ Value: 1101010011 Fittness: 0.5
+ Value: 1000010011 Fittness: 0.3
+ Value: 1101100100 Fittness: 0.6
+ Value: 1011001001 Fittness: 0.4
+
+Gen #53
+ Value: 0101010001 Fittness: 0.3
+ Value: 1001101100 Fittness: 0.6
+ Value: 1011000001 Fittness: 0.3
+ Value: 1101000001 Fittness: 0.3
+ Value: 1000001010 Fittness: 0.4
+ Value: 0010011100 Fittness: 0.5
+ Value: 0011011011 Fittness: 0.5
+ Value: 0010000011 Fittness: 0.2
+ Value: 1011011100 Fittness: 0.7
+ Value: 1001100110 Fittness: 0.6
+
+Gen #54
+ Value: 1111010001 Fittness: 0.5
+ Value: 0100010001 Fittness: 0.2
+ Value: 0010101011 Fittness: 0.4
+ Value: 1001010010 Fittness: 0.5
+ Value: 1100000010 Fittness: 0.4
+ Value: 0000001001 Fittness: 0.1
+ Value: 1101100110 Fittness: 0.7
+ Value: 1000100111 Fittness: 0.4
+ Value: 0101010001 Fittness: 0.3
+ Value: 1001101100 Fittness: 0.6
+
+Gen #55
+ Value: 0110010001 Fittness: 0.3
+ Value: 0011010001 Fittness: 0.3
+ Value: 0011000010 Fittness: 0.4
+ Value: 0110101010 Fittness: 0.6
+ Value: 1001101100 Fittness: 0.6
+ Value: 1011101001 Fittness: 0.5
+ Value: 0100100111 Fittness: 0.4
+ Value: 1110101111 Fittness: 0.7
+ Value: 1111010001 Fittness: 0.5
+ Value: 0100010001 Fittness: 0.2
+
+Gen #56
+ Value: 0011111101 Fittness: 0.6
+ Value: 1111110000 Fittness: 0.7
+ Value: 1011001001 Fittness: 0.4
+ Value: 1110110010 Fittness: 0.7
+ Value: 1011011101 Fittness: 0.6
+ Value: 1001101100 Fittness: 0.6
+ Value: 0111010001 Fittness: 0.4
+ Value: 1000000111 Fittness: 0.3
+ Value: 0110010001 Fittness: 0.3
+ Value: 0011010001 Fittness: 0.3
+
+Gen #57
+ Value: 0011010001 Fittness: 0.3
+ Value: 0111010110 Fittness: 0.7
+ Value: 0001101100 Fittness: 0.5
+ Value: 1011011001 Fittness: 0.5
+ Value: 0111010101 Fittness: 0.5
+ Value: 1100011101 Fittness: 0.5
+ Value: 1000000011 Fittness: 0.2
+ Value: 1110001111 Fittness: 0.6
+ Value: 0011111101 Fittness: 0.6
+ Value: 1111110000 Fittness: 0.7
+
+Gen #58
+ Value: 1111110000 Fittness: 0.7
+ Value: 0111010001 Fittness: 0.4
+ Value: 1101110001 Fittness: 0.5
+ Value: 0011101100 Fittness: 0.6
+ Value: 1110000010 Fittness: 0.5
+ Value: 0001011101 Fittness: 0.4
+ Value: 0001001101 Fittness: 0.3
+ Value: 0001011101 Fittness: 0.4
+ Value: 0011010001 Fittness: 0.3
+ Value: 0111010110 Fittness: 0.7
+
+Gen #59
+ Value: 0111010101 Fittness: 0.5
+ Value: 0111110000 Fittness: 0.6
+ Value: 0010101001 Fittness: 0.3
+ Value: 0001010001 Fittness: 0.2
+ Value: 1100000110 Fittness: 0.5
+ Value: 0111010000 Fittness: 0.5
+ Value: 0000011001 Fittness: 0.2
+ Value: 1001001101 Fittness: 0.4
+ Value: 1111110000 Fittness: 0.7
+ Value: 0111010001 Fittness: 0.4
+
+Gen #60
+ Value: 0111010001 Fittness: 0.4
+ Value: 0001000101 Fittness: 0.2
+ Value: 0111010100 Fittness: 0.6
+ Value: 0011001101 Fittness: 0.4
+ Value: 1001011101 Fittness: 0.5
+ Value: 1011010000 Fittness: 0.5
+ Value: 0111110000 Fittness: 0.6
+ Value: 1111010000 Fittness: 0.6
+ Value: 0111010101 Fittness: 0.5
+ Value: 0111110000 Fittness: 0.6
+
+Gen #61
+ Value: 0101010110 Fittness: 0.6
+ Value: 0111110101 Fittness: 0.6
+ Value: 1111010101 Fittness: 0.6
+ Value: 0100110101 Fittness: 0.4
+ Value: 0001011100 Fittness: 0.5
+ Value: 0100011101 Fittness: 0.4
+ Value: 0011100000 Fittness: 0.4
+ Value: 1011001000 Fittness: 0.5
+ Value: 0111010001 Fittness: 0.4
+ Value: 0001000101 Fittness: 0.2
+
+Gen #62
+ Value: 0101110101 Fittness: 0.5
+ Value: 0000110011 Fittness: 0.3
+ Value: 1010010000 Fittness: 0.4
+ Value: 1111010101 Fittness: 0.6
+ Value: 1111100100 Fittness: 0.7
+ Value: 0001111101 Fittness: 0.5
+ Value: 1101000101 Fittness: 0.4
+ Value: 1100000101 Fittness: 0.3
+ Value: 0101010110 Fittness: 0.6
+ Value: 0111110101 Fittness: 0.6
+
+Gen #63
+ Value: 1100110100 Fittness: 0.6
+ Value: 0101000100 Fittness: 0.4
+ Value: 1101000000 Fittness: 0.4
+ Value: 0111100000 Fittness: 0.5
+ Value: 0011011101 Fittness: 0.5
+ Value: 0001011100 Fittness: 0.5
+ Value: 0101010101 Fittness: 0.4
+ Value: 1100110101 Fittness: 0.5
+ Value: 0101110101 Fittness: 0.5
+ Value: 0000110011 Fittness: 0.3
+
+Gen #64
+ Value: 1111101000 Fittness: 0.7
+ Value: 0101111100 Fittness: 0.7
+ Value: 0100111101 Fittness: 0.5
+ Value: 0111100001 Fittness: 0.4
+ Value: 0101011100 Fittness: 0.6
+ Value: 0001111111 Fittness: 0.6
+ Value: 0110000010 Fittness: 0.4
+ Value: 0111010011 Fittness: 0.5
+ Value: 1100110100 Fittness: 0.6
+ Value: 0101000100 Fittness: 0.4
+
+Gen #65
+ Value: 0001111100 Fittness: 0.6
+ Value: 1000111100 Fittness: 0.6
+ Value: 0000011011 Fittness: 0.3
+ Value: 0001011101 Fittness: 0.4
+ Value: 1110101010 Fittness: 0.7
+ Value: 1110000010 Fittness: 0.5
+ Value: 1001110100 Fittness: 0.6
+ Value: 0000100100 Fittness: 0.3
+ Value: 1111101000 Fittness: 0.7
+ Value: 0101111100 Fittness: 0.7
+
+Gen #66
+ Value: 0011110010 Fittness: 0.6
+ Value: 0001111110 Fittness: 0.7
+ Value: 1010101010 Fittness: 0.6
+ Value: 0011011110 Fittness: 0.7
+ Value: 1101100100 Fittness: 0.6
+ Value: 1010110010 Fittness: 0.6
+ Value: 0000000100 Fittness: 0.2
+ Value: 1101101100 Fittness: 0.7
+ Value: 0001111100 Fittness: 0.6
+ Value: 1000111100 Fittness: 0.6
+
+Gen #67
+ Value: 0110110000 Fittness: 0.5
+ Value: 0110101010 Fittness: 0.6
+ Value: 0000111101 Fittness: 0.4
+ Value: 1010110110 Fittness: 0.7
+ Value: 1101000100 Fittness: 0.5
+ Value: 1101110100 Fittness: 0.7
+ Value: 0111111100 Fittness: 0.8
+ Value: 0001101110 Fittness: 0.6
+ Value: 0011110010 Fittness: 0.6
+ Value: 0001111110 Fittness: 0.7
+
+Gen #68
+ Value: 0110010011 Fittness: 0.4
+ Value: 0111100000 Fittness: 0.5
+ Value: 0101110100 Fittness: 0.6
+ Value: 0001011101 Fittness: 0.4
+ Value: 1101000100 Fittness: 0.5
+ Value: 1101100111 Fittness: 0.6
+ Value: 1000100010 Fittness: 0.4
+ Value: 0000101110 Fittness: 0.5
+ Value: 0110110000 Fittness: 0.5
+ Value: 0110101010 Fittness: 0.6
+
+Gen #69
+ Value: 0101010101 Fittness: 0.4
+ Value: 0110010011 Fittness: 0.4
+ Value: 1110100000 Fittness: 0.5
+ Value: 0110110000 Fittness: 0.5
+ Value: 1010111010 Fittness: 0.7
+ Value: 1100000111 Fittness: 0.4
+ Value: 0100111101 Fittness: 0.5
+ Value: 0111110110 Fittness: 0.8
+ Value: 0110010011 Fittness: 0.4
+ Value: 0111100000 Fittness: 0.5
+
+Gen #70
+ Value: 0110011011 Fittness: 0.5
+ Value: 0110010111 Fittness: 0.5
+ Value: 0001101111 Fittness: 0.5
+ Value: 1100110010 Fittness: 0.6
+ Value: 1010100000 Fittness: 0.4
+ Value: 1010111110 Fittness: 0.8
+ Value: 0100100110 Fittness: 0.5
+ Value: 0100110111 Fittness: 0.5
+ Value: 0101010101 Fittness: 0.4
+ Value: 0110010011 Fittness: 0.4
+
+Gen #71
+ Value: 1101000101 Fittness: 0.4
+ Value: 0000010000 Fittness: 0.2
+ Value: 0100111010 Fittness: 0.6
+ Value: 1011000100 Fittness: 0.5
+ Value: 0011010000 Fittness: 0.4
+ Value: 1011101010 Fittness: 0.7
+ Value: 0110110011 Fittness: 0.5
+ Value: 0001011110 Fittness: 0.6
+ Value: 0110011011 Fittness: 0.5
+ Value: 0110010111 Fittness: 0.5
+
+Gen #72
+ Value: 0010011010 Fittness: 0.5
+ Value: 0000100001 Fittness: 0.1
+ Value: 0010010011 Fittness: 0.3
+ Value: 0010011000 Fittness: 0.4
+ Value: 1100010111 Fittness: 0.5
+ Value: 0111011000 Fittness: 0.6
+ Value: 0000111110 Fittness: 0.6
+ Value: 0000111110 Fittness: 0.6
+ Value: 1101000101 Fittness: 0.4
+ Value: 0000010000 Fittness: 0.2
+
+Gen #73
+ Value: 1011111110 Fittness: 0.9
+ Value: 0010011011 Fittness: 0.4
+ Value: 0010111000 Fittness: 0.5
+ Value: 0110010011 Fittness: 0.4
+ Value: 0110111110 Fittness: 0.8
+ Value: 0100100111 Fittness: 0.4
+ Value: 1101000101 Fittness: 0.4
+ Value: 1101000101 Fittness: 0.4
+ Value: 0010011010 Fittness: 0.5
+ Value: 0000100001 Fittness: 0.1
+
+Gen #74
+ Value: 0000110011 Fittness: 0.3
+ Value: 1000111100 Fittness: 0.6
+ Value: 0110010010 Fittness: 0.5
+ Value: 0110110001 Fittness: 0.4
+ Value: 0001010001 Fittness: 0.2
+ Value: 1100000011 Fittness: 0.3
+ Value: 1011010011 Fittness: 0.5
+ Value: 1111000101 Fittness: 0.5
+ Value: 1011111110 Fittness: 0.9
+ Value: 0010011011 Fittness: 0.4
+
+Gen #75
+ Value: 1100000011 Fittness: 0.3
+ Value: 0011011111 Fittness: 0.6
+ Value: 1101001101 Fittness: 0.5
+ Value: 0110110110 Fittness: 0.7
+ Value: 0111000101 Fittness: 0.4
+ Value: 0111101001 Fittness: 0.5
+ Value: 0011111110 Fittness: 0.8
+ Value: 0000000110 Fittness: 0.3
+ Value: 0000110011 Fittness: 0.3
+ Value: 1000111100 Fittness: 0.6
+
+Gen #76
+ Value: 0001111110 Fittness: 0.7
+ Value: 1110100011 Fittness: 0.5
+ Value: 0001011110 Fittness: 0.6
+ Value: 1011001100 Fittness: 0.6
+ Value: 1010001000 Fittness: 0.4
+ Value: 0001000101 Fittness: 0.2
+ Value: 0110010011 Fittness: 0.4
+ Value: 0110000011 Fittness: 0.3
+ Value: 1100000011 Fittness: 0.3
+ Value: 0011011111 Fittness: 0.6
+
+Gen #77
+ Value: 1011101100 Fittness: 0.7
+ Value: 0100110111 Fittness: 0.5
+ Value: 1110010011 Fittness: 0.5
+ Value: 0100101110 Fittness: 0.6
+ Value: 0000011111 Fittness: 0.4
+ Value: 1101000101 Fittness: 0.4
+ Value: 1110000011 Fittness: 0.4
+ Value: 1110000011 Fittness: 0.4
+ Value: 0001111110 Fittness: 0.7
+ Value: 1110100011 Fittness: 0.5
+
+Gen #78
+ Value: 0010111100 Fittness: 0.6
+ Value: 1001101000 Fittness: 0.5
+ Value: 1010011011 Fittness: 0.5
+ Value: 1110110010 Fittness: 0.7
+ Value: 1110100010 Fittness: 0.6
+ Value: 0010011111 Fittness: 0.5
+ Value: 1111110101 Fittness: 0.7
+ Value: 1111100011 Fittness: 0.6
+ Value: 1011101100 Fittness: 0.7
+ Value: 0100110111 Fittness: 0.5
+
+Gen #79
+ Value: 0011110110 Fittness: 0.7
+ Value: 0000111100 Fittness: 0.5
+ Value: 1000011011 Fittness: 0.4
+ Value: 0011100011 Fittness: 0.4
+ Value: 0100010100 Fittness: 0.4
+ Value: 0110100010 Fittness: 0.5
+ Value: 1110000001 Fittness: 0.3
+ Value: 0111011101 Fittness: 0.6
+ Value: 0010111100 Fittness: 0.6
+ Value: 1001101000 Fittness: 0.5
+
+Gen #80
+ Value: 0010011011 Fittness: 0.4
+ Value: 1110010110 Fittness: 0.7
+ Value: 1101010011 Fittness: 0.5
+ Value: 1110001011 Fittness: 0.5
+ Value: 1110110010 Fittness: 0.7
+ Value: 1110100110 Fittness: 0.7
+ Value: 0001110000 Fittness: 0.4
+ Value: 0001011000 Fittness: 0.4
+ Value: 0011110110 Fittness: 0.7
+ Value: 0000111100 Fittness: 0.5
+
+Gen #81
+ Value: 0110110011 Fittness: 0.5
+ Value: 0010011011 Fittness: 0.4
+ Value: 1100100110 Fittness: 0.6
+ Value: 0110011011 Fittness: 0.5
+ Value: 0001110100 Fittness: 0.5
+ Value: 1111111000 Fittness: 0.8
+ Value: 0110100010 Fittness: 0.5
+ Value: 0100110101 Fittness: 0.4
+ Value: 0010011011 Fittness: 0.4
+ Value: 1110010110 Fittness: 0.7
+
+Gen #82
+ Value: 0101010100 Fittness: 0.5
+ Value: 0111010011 Fittness: 0.5
+ Value: 1011101000 Fittness: 0.6
+ Value: 1101100110 Fittness: 0.7
+ Value: 0000011000 Fittness: 0.3
+ Value: 1100100110 Fittness: 0.6
+ Value: 1111100110 Fittness: 0.8
+ Value: 0100000010 Fittness: 0.3
+ Value: 0110110011 Fittness: 0.5
+ Value: 0010011011 Fittness: 0.4
+
+Gen #83
+ Value: 0110010001 Fittness: 0.3
+ Value: 0101110100 Fittness: 0.6
+ Value: 1010111011 Fittness: 0.6
+ Value: 1011101000 Fittness: 0.6
+ Value: 1100100110 Fittness: 0.6
+ Value: 1111111110 Fittness: 1.0
+
+This is the solution: 1111111110
+In Gen: 83
+Solution found in: 1897.0 miliseconds.
+Press any key to continue . . .
