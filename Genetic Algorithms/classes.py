@@ -1,8 +1,4 @@
 import random
-
-def PrintList(list):
-	for item in list:
-		print(item);
 	
 def CanidateToList(can):
 	list = []
@@ -19,9 +15,9 @@ def FindMyIndex(list, case):
 		else:
 			int += 1;
 
-def GenRandomValues(literalsLength):
+def GenRandomValues(literalsLength, max):
         values = []
-        for value in range(0, 4):
+        for value in range(0, max):
                 tempBitString = Canidate("")
                 for bit in range(0, literalsLength):
                         rand = random.randrange(0, 100, 1)
@@ -47,49 +43,50 @@ class Canidate(object):
 				value[bit - (len(literals) / 2)] = '0'
 		return value
 	
-	def Evaluation(self, clauses, literals, value):
+	def Evaluation(self, expression, literals, can):
 		tempstring = ""
+		clauses = []
 		chromoeval = 0
-		for string in clauses:		                #Switch values
+		for string in expression:		                #Switch values
 			for char in string:
+				if char == ')':
+					tempstring += char
+					clauses.append(tempstring)
+					tempstring = ""
 				
-				if char == '~':			#Opporators
-						tempstring += '~'
+				elif char == '&':
+					continue
 				
-				elif  char == '&':
-						tempstring += '&'
+				else:
+					if char != '~' and char != '(' and char != '|' and char != '&':
+						tempstring += can.value[FindMyIndex(literals, char)]
 					
-				elif  char == '|':
-						tempstring += '|'				
-				
-				else:						#Literals
-					index = FindMyIndex(literals, char)
-					tempstring += str(value.value[index])
-				
-			flip = 0
-			printString = ""
-			finalstring = ""
-			for char in tempstring:         #Do inverses of 1's and 0's
+					else:
+						tempstring += char
+						
+		finalString = ""
+		flip = 0
+		for string in clauses:
+			for char in string:
 				if flip == 1:
 					if char == '1':
-						finalstring += str(0)
+						finalString += '0'
 						
 					elif char == '0':
-						finalstring += str(1)
+						finalString += '1'
 					flip = 0
-				
-				elif char == '~' and flip == 0: #if Inverse operator
-					flip = 1
-						
 				else:
-					finalstring += char
+					if char == '~':
+						flip = 1
+					else:
+						finalString += char
+			clauses[FindMyIndex(clauses, string)] = finalString
+			finalString = ""
 			
-			chromoeval +=(eval(finalstring))
-			printString += finalstring
-			tempstring = ""
-			finalstring = ""
-		print(printString)
-		return chromoeval / len(literals);
+		for c in clauses:
+			chromoeval += eval(c)
+
+		return chromoeval / float(len(clauses))
 
 	def Mutate(self, mutationChance):
 		finalList = []
@@ -105,3 +102,9 @@ class Canidate(object):
 		for bit in finalList:
 			bitString += bit
 		return bitString
+	
+	def PrintCanidate(self, expression, fittness):
+		print ("Expression: " + expression)
+		print("Value: " + self.value)
+		print("Fittness: " + str(fittness))
+		print("\n")

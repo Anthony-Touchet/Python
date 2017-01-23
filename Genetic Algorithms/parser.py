@@ -1,12 +1,13 @@
 import classes
 from classes import *
-import random
+import time
 
 file = "expressions.txt"
 inFile = open(file,'r')
 
 for string in inFile:
-	if(inFile):			
+	if(inFile):	
+		expression = ""
 		clauses = []
 		literals = []
 		popul = []
@@ -16,7 +17,7 @@ for string in inFile:
 			if char == '!' and inClause == "true":			#Opporators
 				clausesString += '~';
 			
-			elif  char == '&' and inClause == "true":
+			elif  char == '&':
 				clausesString += char;
 				
 			elif  char == '|' and inClause == "true":
@@ -30,26 +31,34 @@ for string in inFile:
 				
 			elif  char == '(' and inClause == "false":		#Clauses
 				inClause = "true";
+				clausesString += '(';
 				
 			elif  char == ')' and inClause == "true":
 				inClause = "false";	
+				clausesString += ')';
 				clauses.append(clausesString);
 				clausesString = "";
-			
+
 			elif inClause == "true":						#Literals
 				clausesString += char;
 				if char in literals:
 					continue;
 				literals.append(char);
         
+		for string in clauses:
+			expression += string
+		
+		print(expression + "\n")
 		##Offspring and Mutation
-		popul = GenRandomValues(len(literals))  ##Generate popul
+		popul = GenRandomValues(len(literals), 16)  ##Generate popul
 		solutionFound = 0;
 		solution = None
+		gen = 0
 		while(solutionFound == 0):
+			gen += 1
 			for can in popul:
-				if can.Evaluation(clauses, literals, can) >= 1:
-					print(can.Evaluation(clauses, literals, can))
+				if can.Evaluation(expression, literals, can) >= 1:
+					print(can.Evaluation(expression, literals, can))
 					solution = can
 					solutionFound = 1;
 					break
@@ -60,7 +69,7 @@ for string in inFile:
 				
 			newPopulation = []
 			populationCount = len(breedableCanidates)
-			for parent in range(0, populationCount / 2):
+			for parent in range(0, 4):
 				firstParent = breedableCanidates[parent]
 				secondParent = Canidate("")
 				active = "true"
@@ -84,18 +93,21 @@ for string in inFile:
 						bitString += bit
 					can.value = bitString
 			
+			finalPopulation = []		#Put Children on finalPopulation and have them compete with their parents
 			for newCan in newPopulation:
-				newCan.value = newCan.Mutate(14)
-				popul.append(newCan)
-			
-			finalPopulation = []
-			for can in popul:
-				if len(finalPopulation) < 4:
+				newCan.value = newCan.Mutate(25)
+				finalPopulation.append(newCan)			
+				
+			for can in popul:		#Strongest parents and children survive
+				if len(finalPopulation) < 10:
 					finalPopulation.append(can)
 				else:
 					for check in finalPopulation:
-						if can.Evaluation(clauses, literals, can) > check.Evaluation(clauses, literals, check):
+						if can.Evaluation(expression, literals, can) > check.Evaluation(clauses, literals, check):
 							check = can
-						
-		print(string)
+							
+			popul = finalPopulation
+			for p in popul:
+				p.PrintCanidate(expression, p.Evaluation(expression, literals, p))
 		print("This is the solution: " + solution.value)
+		print("In Gen: " + str(gen))
