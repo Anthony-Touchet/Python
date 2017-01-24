@@ -86,7 +86,7 @@ solution = None
 gen = 0
 start = time.time()
 end = None
-while(solutionFound == 0 and gen < 2000):
+while(solutionFound == 0 and gen < 3000):
 	gen += 1
 	log +=("\n" + "Gen #" + str(gen) + " \n ")
 	for can in popul:
@@ -161,5 +161,5 @@ if solution != None:
 	print("Solution found in: " + str(round((end - start) * 1000.0, 1)) + " miliseconds.")
 
 else:
-	print("Over 2000 Generations, the solution has not been found.")
-	print("2000 Generations in: " + str(round((end - start) * 1000.0, 1)) + " miliseconds.")
+	print("Over " + str(gen) + " Generations, the solution has not been found.")
+	print(str(gen) + " Generations in: " + str(round((end - start) * 1000.0, 1)) + " miliseconds.")
