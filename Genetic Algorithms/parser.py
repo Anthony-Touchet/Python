@@ -16,26 +16,25 @@ for line in inFile:
 	expressions.append(line)
 	lineNumber += 1
 
-log = ""
-input = input()
+log = ""				#Log of all that is happening in the program.
+input = input()			#Get user input
 input = int(input)
 
-if input >= 0 and input < len(expressions):
+if input >= 0 and input < len(expressions):	#Is input valid
 	string = expressions[input]
 else:
 	choice = random.randrange(0, len(expressions), 1)
 	print("Error! Expression " + str(choice) + " selected")
 	string = expressions[choice]
 
+log += (string + "\n" + "\n")	#Print testing expression
 
-log += (string + "\n" + "\n")
-
-expression = ""
-clauses = []
-literals = []
-popul = []
-inClause = "false";
-clausesString = "";
+expression = ""		#What the Expression will be turned into
+clauses = []		#All the clauses in the expression
+literals = []		#All the literals in the expression
+popul = []			#Current Population of canidates
+inClause = "false";	#Check to see if the parser is in a clause
+clausesString = "";	#temp string for the expression 
 
 for char in string:			                        #Get The phrase
 	if char == '!' and inClause == "true":			#Opporators
@@ -79,13 +78,14 @@ log +=("Inital population:" + " \n ")
 for p in popul:
 	num += 1
 	log +=("Canidate #" + str(num) + " : " + str(p.value) + " \n ")
+
 log += " \n "
 solutionFound = 0;
 solution = None
 gen = 0
 start = time.time()
 end = None
-while(solutionFound == 0):
+while(solutionFound == 0 and gen < 2000):
 	gen += 1
 	log +=("\n" + "Gen #" + str(gen) + " \n ")
 	for can in popul:
@@ -147,6 +147,11 @@ while(solutionFound == 0):
 			solutionFound = 1;
 			break
 print(log)
-print("This is the solution: " + solution.value)
-print("In Gen: " + str(gen))
-print("Solution found in: " + str(round((end - start) * 1000.0, 1)) + " miliseconds.")
+
+if solution != None:
+	print("This is the solution: " + solution.value)
+	print("In Gen: " + str(gen))
+	print("Solution found in: " + str(round((end - start) * 1000.0, 1)) + " miliseconds.")
+
+else:
+	print("Over 2000 Generations, the solution has not been found.")
