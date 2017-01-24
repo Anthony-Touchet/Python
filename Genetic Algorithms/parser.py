@@ -4,6 +4,7 @@ import time
 
 file = "expressions.txt"
 inFile = open(file,'r')
+case3 = open("TestCase4.txt", 'w')
 
 #for string in inFile:
 #	if(inFile):	
@@ -146,6 +147,12 @@ while(solutionFound == 0 and gen < 2000):
 			solution = p
 			solutionFound = 1;
 			break
+
+if end == None:
+	end = time.time()
+if input == 3:
+	case3.write(log)
+
 print(log)
 
 if solution != None:
@@ -155,3 +162,4 @@ if solution != None:
 
 else:
 	print("Over 2000 Generations, the solution has not been found.")
+	print("2000 Generations in: " + str(round((end - start) * 1000.0, 1)) + " miliseconds.")
