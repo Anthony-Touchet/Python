@@ -34,6 +34,7 @@ class Canidate(object):
 		for bit in string:
 			bitstring += bit
 		self.value = bitstring
+		self.age = 0
 		
 	def FlipFrontOffspring(self, literals, value):
 		for bit in range(len(literals) / 2, len(literals)):
@@ -109,3 +110,18 @@ class Canidate(object):
 		log +=("Fittness: " + str(fittness) + " ")
 		log += " \n "
 		return log
+		
+	def PercentInheritance(self, percent):	#Percent must be between 0 and 100
+		parentValue = self.value
+		childValue = ""
+		for bit in self.value:
+			br = random.randrange(1, 101, 1)
+			if br <= percent:
+				childValue += bit
+			else:
+				if bit == '0':
+					childValue += '1'
+				else:
+					childValue += '0'
+
+		return Canidate(childValue)

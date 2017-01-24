@@ -74,12 +74,14 @@ for string in clauses:
 
 ##Offspring and Mutation
 popul = GenRandomValues(len(literals), 10)  ##Generate popul
+
 num = 0
 log +=("Inital population:" + " \n ")
 for p in popul:
 	num += 1
 	log +=("Canidate #" + str(num) + " : " + str(p.value) + " \n ")
 
+popul[0].PercentInheritance(75)
 log += " \n "
 solutionFound = 0;
 solution = None
@@ -102,7 +104,7 @@ while(solutionFound == 0 and gen < 3000):
 		
 	newPopulation = []
 	populationCount = len(breedableCanidates)
-	for parent in range(0, 4):
+	for parent in range(0, len(popul) / 2 - 1):
 		firstParent = breedableCanidates[parent]
 		secondParent = Canidate("")
 		active = "true"
