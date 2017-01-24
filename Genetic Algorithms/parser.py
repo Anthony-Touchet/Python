@@ -34,6 +34,7 @@ expression = ""		#What the Expression will be turned into
 clauses = []		#All the clauses in the expression
 literals = []		#All the literals in the expression
 popul = []			#Current Population of canidates
+maxPopulation = 10
 inClause = "false";	#Check to see if the parser is in a clause
 clausesString = "";	#temp string for the expression 
 
@@ -73,7 +74,7 @@ for string in clauses:
 	expression += string
 
 ##Offspring and Mutation
-popul = GenRandomValues(len(literals), 10)  ##Generate popul
+popul = GenRandomValues(len(literals), maxPopulation)  ##Generate popul
 
 num = 0
 log +=("Inital population:" + " \n ")
@@ -81,7 +82,6 @@ for p in popul:
 	num += 1
 	log +=("Canidate #" + str(num) + " : " + str(p.value) + " \n ")
 
-popul[0].PercentInheritance(75)
 log += " \n "
 solutionFound = 0;
 solution = None
@@ -134,7 +134,7 @@ while(solutionFound == 0 and gen < 3000):
 		finalPopulation.append(newCan)			
 		
 	for can in popul:		#Strongest parents and children survive
-		if len(finalPopulation) < 10:
+		if len(finalPopulation) < maxPopulation:
 			finalPopulation.append(can)
 		else:
 			for check in finalPopulation:
@@ -152,7 +152,7 @@ while(solutionFound == 0 and gen < 3000):
 
 if end == None:
 	end = time.time()
-if input == 3:
+if input == lineNumber:
 	case3.write(log)
 
 print(log)
