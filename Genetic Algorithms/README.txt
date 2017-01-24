@@ -1,0 +1,1 @@
+To run the Genetic Algorithm, open the run.bat file or double click it. The program will then give three expressions to choose from. Enter the number next to the expression that you would like the algorithm to solve. Anything above the numbers or below zero will result in a random expression being selected.

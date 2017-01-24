@@ -16,9 +16,19 @@ for line in inFile:
 	expressions.append(line)
 	lineNumber += 1
 
+log = ""
 input = input()
 input = int(input)
-string = expressions[input]
+
+if input >= 0 and input < len(expressions):
+	string = expressions[input]
+else:
+	choice = random.randrange(0, len(expressions), 1)
+	print("Error! Expression " + str(choice) + " selected")
+	string = expressions[choice]
+
+
+log += (string + "\n" + "\n")
 
 expression = ""
 clauses = []
@@ -26,7 +36,7 @@ literals = []
 popul = []
 inClause = "false";
 clausesString = "";
-log = ""
+
 for char in string:			                        #Get The phrase
 	if char == '!' and inClause == "true":			#Opporators
 		clausesString += '~';
@@ -62,7 +72,6 @@ for char in string:			                        #Get The phrase
 for string in clauses:
 	expression += string
 
-log += (expression + "\n" + "\n")
 ##Offspring and Mutation
 popul = GenRandomValues(len(literals), 10)  ##Generate popul
 num = 0
