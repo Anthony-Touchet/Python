@@ -1,3 +1,3 @@
 @ECHO off
-C:\Python27\python.exe parser.py
+C:\Python27\python.exe Algorithm.py
 pause
